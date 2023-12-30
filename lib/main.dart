@@ -1,5 +1,9 @@
+import 'package:ecommerce_app_backend/common/widgets/bottom_bar.dart';
 import 'package:ecommerce_app_backend/constants/global_variables.dart';
+import 'package:ecommerce_app_backend/features/admin/screens/admin_screen.dart';
 import 'package:ecommerce_app_backend/features/auth/screens/auth_screen.dart';
+import 'package:ecommerce_app_backend/features/auth/services/auth_service.dart';
+import 'package:ecommerce_app_backend/features/home/screens/home_screen.dart';
 import 'package:ecommerce_app_backend/providers/user_provider.dart';
 import 'package:ecommerce_app_backend/routes.dart';
 import 'package:flutter/material.dart';
@@ -13,8 +17,21 @@ void main() {
   ], child: const MyApp()));
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  final AuthService authService = AuthService();
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    authService.getUserData(context);
+  }
 
   // This widget is the root of your application.
   @override
@@ -35,7 +52,11 @@ class MyApp extends StatelessWidget {
         ),
       ),
       onGenerateRoute: (settings) => generateRoute(settings),
-      home: const AuthScreen(),
+      home: Provider.of<UserProvider>(context).user.token.isNotEmpty
+          ? Provider.of<UserProvider>(context).user.type == 'user'
+              ? const BottomBar()
+              : const AdminScreen()
+          : const AuthScreen(),
     );
   }
 }
