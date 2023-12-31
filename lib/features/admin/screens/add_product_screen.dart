@@ -1,5 +1,6 @@
 import 'dart:io';
 
+<<<<<<< HEAD
 import 'package:ecommerce_app_backend/common/widgets/custom_button.dart';
 import 'package:ecommerce_app_backend/common/widgets/custom_textfield.dart';
 import 'package:ecommerce_app_backend/constants/global_variables.dart';
@@ -7,6 +8,16 @@ import 'package:ecommerce_app_backend/constants/utils.dart';
 import 'package:ecommerce_app_backend/features/admin/services/admin_services.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dotted_border/dotted_border.dart';
+=======
+import 'package:carousel_slider/carousel_options.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:dotted_border/dotted_border.dart';
+import 'package:ecommerce_app_backend/common/widgets/custom_button.dart';
+import 'package:ecommerce_app_backend/common/widgets/custom_textField.dart';
+import 'package:ecommerce_app_backend/constants/global_variables.dart';
+import 'package:ecommerce_app_backend/constants/utils.dart';
+import 'package:ecommerce_app_backend/features/admin/services/admin_services.dart';
+>>>>>>> 77cec44db4499a9bd057cf0dea2f7378041c7cbf
 import 'package:flutter/material.dart';
 
 class AddProductScreen extends StatefulWidget {
@@ -60,6 +71,10 @@ class _AddProductScreenState extends State<AddProductScreen> {
   }
 
   void selectImages() async {
+<<<<<<< HEAD
+=======
+    print('select images');
+>>>>>>> 77cec44db4499a9bd057cf0dea2f7378041c7cbf
     var res = await pickImages();
     setState(() {
       images = res;
@@ -187,7 +202,11 @@ class _AddProductScreenState extends State<AddProductScreen> {
                 const SizedBox(height: 10),
                 CustomButton(
                   text: 'Sell',
+<<<<<<< HEAD
                   onTap: sellProduct,
+=======
+                  onTap: sellProduct, //sellProduct,
+>>>>>>> 77cec44db4499a9bd057cf0dea2f7378041c7cbf
                 ),
               ],
             ),

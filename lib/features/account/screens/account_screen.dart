@@ -1,7 +1,11 @@
 import 'package:ecommerce_app_backend/constants/global_variables.dart';
 import 'package:ecommerce_app_backend/features/account/widgets/below_app_bar.dart';
+<<<<<<< HEAD
 import 'package:ecommerce_app_backend/features/account/widgets/orders.dart';
 import 'package:ecommerce_app_backend/features/account/widgets/top_buttons.dart';
+=======
+import 'package:ecommerce_app_backend/features/account/widgets/top_bottuns.dart';
+>>>>>>> 77cec44db4499a9bd057cf0dea2f7378041c7cbf
 import 'package:flutter/material.dart';
 
 class AccountScreen extends StatelessWidget {
@@ -54,7 +58,11 @@ class AccountScreen extends StatelessWidget {
           SizedBox(height: 10),
           TopButtons(),
           SizedBox(height: 20),
+<<<<<<< HEAD
           Orders(),
+=======
+          // Orders(),
+>>>>>>> 77cec44db4499a9bd057cf0dea2f7378041c7cbf
         ],
       ),
     );

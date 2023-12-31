@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 import 'package:ecommerce_app_backend/common/widgets/loader.dart';
 import 'package:ecommerce_app_backend/constants/global_variables.dart';
 import 'package:ecommerce_app_backend/features/account/services/account_services.dart';
+=======
+import 'package:ecommerce_app_backend/constants/global_variables.dart';
+>>>>>>> 77cec44db4499a9bd057cf0dea2f7378041c7cbf
 import 'package:ecommerce_app_backend/features/account/widgets/single_product.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +16,11 @@ class Orders extends StatefulWidget {
 }
 
 class _OrdersState extends State<Orders> {
+<<<<<<< HEAD
   final AccountServices accountServices = AccountServices();
+=======
+  // final AccountServices accountServices = AccountServices();
+>>>>>>> 77cec44db4499a9bd057cf0dea2f7378041c7cbf
 
   @override
   void initState() {
@@ -64,7 +72,11 @@ class _OrdersState extends State<Orders> {
             itemBuilder: (context, index) {
               return GestureDetector(
                 onTap: () {},
+<<<<<<< HEAD
                 child: SingleProduct(
+=======
+                child: const SingleProduct(
+>>>>>>> 77cec44db4499a9bd057cf0dea2f7378041c7cbf
                   image: "assests/images/books.jpeg",
                 ),
               );

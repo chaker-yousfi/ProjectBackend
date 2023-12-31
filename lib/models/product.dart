@@ -7,7 +7,13 @@ class Product {
   final List<String> images;
   final String category;
   final double price;
+<<<<<<< HEAD
   final String? id;
+=======
+  String? id;
+ 
+
+>>>>>>> 77cec44db4499a9bd057cf0dea2f7378041c7cbf
   Product({
     required this.name,
     required this.description,
@@ -27,6 +33,10 @@ class Product {
       'category': category,
       'price': price,
       'id': id,
+<<<<<<< HEAD
+=======
+      //'rating': rating,
+>>>>>>> 77cec44db4499a9bd057cf0dea2f7378041c7cbf
     };
   }
 
@@ -39,6 +49,16 @@ class Product {
       category: map['category'] ?? '',
       price: map['price']?.toDouble() ?? 0.0,
       id: map['_id'],
+<<<<<<< HEAD
+=======
+      // rating: map['ratings'] != null
+      //     ? List<Rating>.from(
+      //         map['ratings']?.map(
+      //           (x) => Rating.fromMap(x),
+      //         ),
+      //       )
+      //     : null,
+>>>>>>> 77cec44db4499a9bd057cf0dea2f7378041c7cbf
     );
   }
 

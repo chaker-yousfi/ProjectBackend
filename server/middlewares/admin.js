@@ -24,4 +24,8 @@ const admin = async (req, res, next) => {
   }
 };
 
+<<<<<<< HEAD
 module.exports = admin;
+=======
+module.exports = admin;
+>>>>>>> 77cec44db4499a9bd057cf0dea2f7378041c7cbf

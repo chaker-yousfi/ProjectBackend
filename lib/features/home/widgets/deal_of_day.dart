@@ -11,12 +11,35 @@ class DealOfDay extends StatefulWidget {
 
 class _DealOfDayState extends State<DealOfDay> {
   Product? product;
+<<<<<<< HEAD
+=======
+  //final HomeServices homeServices = HomeServices();
+>>>>>>> 77cec44db4499a9bd057cf0dea2f7378041c7cbf
 
   @override
   void initState() {
     super.initState();
+<<<<<<< HEAD
   }
 
+=======
+    // fetchDealOfDay();
+  }
+
+  // void fetchDealOfDay() async {
+  //   product = await homeServices.fetchDealOfDay(context: context);
+  //   setState(() {});
+  // }
+
+  // void navigateToDetailScreen() {
+  //   Navigator.pushNamed(
+  //     context,
+  //     ProductDetailScreen.routeName,
+  //     arguments: product,
+  //   );
+  // }
+
+>>>>>>> 77cec44db4499a9bd057cf0dea2f7378041c7cbf
   @override
   Widget build(BuildContext context) {
     return product == null
@@ -24,7 +47,11 @@ class _DealOfDayState extends State<DealOfDay> {
         : product!.name.isEmpty
             ? const SizedBox()
             : GestureDetector(
+<<<<<<< HEAD
                 onTap: () {},
+=======
+                onTap: () {}, //navigateToDetailScreen,
+>>>>>>> 77cec44db4499a9bd057cf0dea2f7378041c7cbf
                 child: Column(
                   children: [
                     Container(

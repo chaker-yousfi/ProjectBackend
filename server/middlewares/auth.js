@@ -20,4 +20,8 @@ const auth = async (req, res, next) => {
   }
 };
 
+<<<<<<< HEAD
 module.exports = auth;
+=======
+module.exports = auth;
+>>>>>>> 77cec44db4499a9bd057cf0dea2f7378041c7cbf

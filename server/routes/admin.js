@@ -2,7 +2,10 @@ const express = require("express");
 const adminRouter = express.Router();
 const admin = require("../middlewares/admin");
 const { Product } = require("../models/product");
+<<<<<<< HEAD
 const Order = require("../models/order");
+=======
+>>>>>>> 77cec44db4499a9bd057cf0dea2f7378041c7cbf
 const { PromiseProvider } = require("mongoose");
 
 // Add product
@@ -24,7 +27,10 @@ adminRouter.post("/admin/add-product", admin, async (req, res) => {
   }
 });
 
+<<<<<<< HEAD
 // Get all your products
+=======
+>>>>>>> 77cec44db4499a9bd057cf0dea2f7378041c7cbf
 adminRouter.get("/admin/get-products", admin, async (req, res) => {
   try {
     const products = await Product.find({});
@@ -34,7 +40,11 @@ adminRouter.get("/admin/get-products", admin, async (req, res) => {
   }
 });
 
+<<<<<<< HEAD
 // Delete the product
+=======
+
+>>>>>>> 77cec44db4499a9bd057cf0dea2f7378041c7cbf
 adminRouter.post("/admin/delete-product", admin, async (req, res) => {
   try {
     const { id } = req.body;
@@ -45,6 +55,7 @@ adminRouter.post("/admin/delete-product", admin, async (req, res) => {
   }
 });
 
+<<<<<<< HEAD
 adminRouter.get("/admin/get-orders", admin, async (req, res) => {
   try {
     const orders = await Order.find({});
@@ -116,3 +127,6 @@ async function fetchCategoryWiseProduct(category) {
 }
 
 module.exports = adminRouter;
+=======
+module.exports = adminRouter;
+>>>>>>> 77cec44db4499a9bd057cf0dea2f7378041c7cbf

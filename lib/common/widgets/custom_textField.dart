@@ -5,11 +5,19 @@ class CustomTextField extends StatelessWidget {
   final String hintText;
   final int maxLines;
   const CustomTextField({
+<<<<<<< HEAD
     Key? key,
     required this.controller,
     required this.hintText,
     this.maxLines = 1,
   }) : super(key: key);
+=======
+    super.key,
+    required this.controller,
+    required this.hintText,
+    this.maxLines = 1,
+  });
+>>>>>>> 77cec44db4499a9bd057cf0dea2f7378041c7cbf
 
   @override
   Widget build(BuildContext context) {

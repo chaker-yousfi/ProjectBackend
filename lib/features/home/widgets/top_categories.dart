@@ -4,6 +4,14 @@ import 'package:flutter/material.dart';
 class TopCategories extends StatelessWidget {
   const TopCategories({Key? key}) : super(key: key);
 
+<<<<<<< HEAD
+=======
+  // void navigateToCategoryPage(BuildContext context, String category) {
+  //   Navigator.pushNamed(context, CategoryDealsScreen.routeName,
+  //       arguments: category);
+  // }
+
+>>>>>>> 77cec44db4499a9bd057cf0dea2f7378041c7cbf
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -14,7 +22,15 @@ class TopCategories extends StatelessWidget {
         itemExtent: 75,
         itemBuilder: (context, index) {
           return GestureDetector(
+<<<<<<< HEAD
             onTap: () {},
+=======
+            onTap: () => {},
+            // navigateToCategoryPage(
+            //   context,
+            //   GlobalVariables.categoryImages[index]['title']!,
+            // ),
+>>>>>>> 77cec44db4499a9bd057cf0dea2f7378041c7cbf
             child: Column(
               children: [
                 Container(

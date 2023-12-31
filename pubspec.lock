@@ -13,10 +13,17 @@ packages:
     dependency: "direct main"
     description:
       name: badges
+<<<<<<< HEAD
       sha256: "727580d938b7a1ff47ea42df730d581415606b4224cfa708671c10287f8d3fe6"
       url: "https://pub.dev"
     source: hosted
     version: "2.0.3"
+=======
+      sha256: a7b6bbd60dce418df0db3058b53f9d083c22cdb5132a052145dc267494df0b84
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.1.2"
+>>>>>>> 77cec44db4499a9bd057cf0dea2f7378041c7cbf
   boolean_selector:
     dependency: transitive
     description:
@@ -117,10 +124,17 @@ packages:
     dependency: "direct main"
     description:
       name: file_picker
+<<<<<<< HEAD
       sha256: "704259669b5e9cb24e15c11cfcf02caf5f20d30901b3916d60b6d1c2d647035f"
       url: "https://pub.dev"
     source: hosted
     version: "4.6.1"
+=======
+      sha256: "4e42aacde3b993c5947467ab640882c56947d9d27342a5b6f2895b23956954a6"
+      url: "https://pub.dev"
+    source: hosted
+    version: "6.1.1"
+>>>>>>> 77cec44db4499a9bd057cf0dea2f7378041c7cbf
   flutter:
     dependency: "direct main"
     description: flutter
