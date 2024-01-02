@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:ecommerce_app_backend/models/rating.dart';
+
 class Product {
   final String name;
   final String description;
@@ -7,13 +9,9 @@ class Product {
   final List<String> images;
   final String category;
   final double price;
-<<<<<<< HEAD
-  final String? id;
-=======
   String? id;
- 
+  final List<Rating>? rating;
 
->>>>>>> 77cec44db4499a9bd057cf0dea2f7378041c7cbf
   Product({
     required this.name,
     required this.description,
@@ -22,6 +20,7 @@ class Product {
     required this.category,
     required this.price,
     this.id,
+    this.rating,
   });
 
   Map<String, dynamic> toMap() {
@@ -33,10 +32,7 @@ class Product {
       'category': category,
       'price': price,
       'id': id,
-<<<<<<< HEAD
-=======
-      //'rating': rating,
->>>>>>> 77cec44db4499a9bd057cf0dea2f7378041c7cbf
+      'rating': rating,
     };
   }
 
@@ -49,16 +45,13 @@ class Product {
       category: map['category'] ?? '',
       price: map['price']?.toDouble() ?? 0.0,
       id: map['_id'],
-<<<<<<< HEAD
-=======
-      // rating: map['ratings'] != null
-      //     ? List<Rating>.from(
-      //         map['ratings']?.map(
-      //           (x) => Rating.fromMap(x),
-      //         ),
-      //       )
-      //     : null,
->>>>>>> 77cec44db4499a9bd057cf0dea2f7378041c7cbf
+      rating: map['ratings'] != null
+          ? List<Rating>.from(
+              map['ratings']?.map(
+                (x) => Rating.fromMap(x),
+              ),
+            )
+          : null,
     );
   }
 

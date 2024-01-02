@@ -1,9 +1,4 @@
 import 'dart:convert';
-<<<<<<< HEAD
-=======
-
-import 'package:ecommerce_app_backend/common/widgets/bottom_bar.dart';
->>>>>>> 77cec44db4499a9bd057cf0dea2f7378041c7cbf
 import 'package:ecommerce_app_backend/constants/error_handling.dart';
 import 'package:ecommerce_app_backend/common/widgets/bottom_bar.dart';
 import 'package:ecommerce_app_backend/constants/global_variables.dart';
@@ -32,6 +27,7 @@ class AuthService {
         address: '',
         type: '',
         token: '',
+        cart: [],
       );
 
       http.Response res = await http.post(
@@ -42,7 +38,7 @@ class AuthService {
         },
       );
 
-      httpErrorHandle(
+      httpErrorHandling(
         response: res,
         context: context,
         onSuccess: () {
@@ -74,7 +70,7 @@ class AuthService {
           'Content-Type': 'application/json; charset=UTF-8',
         },
       );
-      httpErrorHandle(
+      httpErrorHandling(
         response: res,
         context: context,
         onSuccess: () async {
@@ -133,42 +129,5 @@ class AuthService {
   }
 
 
-  // get user data
-  void getUserData(
-    BuildContext context,
-  ) async {
-    try {
-      SharedPreferences prefs = await SharedPreferences.getInstance();
-      String? token = prefs.getString('x-auth-token');
-
-      if (token == null) {
-        prefs.setString('x-auth-token', '');
-      }
-
-      var tokenRes = await http.post(
-        Uri.parse('$uri/tokenIsValid'),
-        headers: <String, String>{
-          'Content-Type': 'application/json; charset=UTF-8',
-          'x-auth-token': token!
-        },
-      );
-
-      var response = jsonDecode(tokenRes.body);
-
-      if (response == true) {
-        http.Response userRes = await http.get(
-          Uri.parse('$uri/'),
-          headers: <String, String>{
-            'Content-Type': 'application/json; charset=UTF-8',
-            'x-auth-token': token
-          },
-        );
-
-        var userProvider = Provider.of<UserProvider>(context, listen: false);
-        userProvider.setUser(userRes.body);
-      }
-    } catch (e) {
-      showSnackBar(context, e.toString());
-    }
-  }
+  
 }

@@ -1,15 +1,8 @@
-<<<<<<< HEAD
-=======
 import 'package:badges/badges.dart' as badges;
->>>>>>> 77cec44db4499a9bd057cf0dea2f7378041c7cbf
 import 'package:ecommerce_app_backend/constants/global_variables.dart';
 import 'package:ecommerce_app_backend/features/account/screens/account_screen.dart';
 import 'package:ecommerce_app_backend/features/home/screens/home_screen.dart';
 import 'package:ecommerce_app_backend/providers/user_provider.dart';
-<<<<<<< HEAD
-import 'package:badges/badges.dart';
-=======
->>>>>>> 77cec44db4499a9bd057cf0dea2f7378041c7cbf
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -29,15 +22,12 @@ class _BottomBarState extends State<BottomBar> {
   List<Widget> pages = [
     const HomeScreen(),
     const AccountScreen(),
-<<<<<<< HEAD
-=======
     const Center(
       child: Text('Cart Page'),
     ),
 
      const AccountScreen(),
     //  const CartSceen(),
->>>>>>> 77cec44db4499a9bd057cf0dea2f7378041c7cbf
   ];
 
   void updatePage(int page) {
@@ -48,11 +38,8 @@ class _BottomBarState extends State<BottomBar> {
 
   @override
   Widget build(BuildContext context) {
-<<<<<<< HEAD
-=======
-    // final userCartLen = context.watch<UserProvider>().user.cart.length;
+    final userCartLen = context.watch<UserProvider>().user.cart.length;
 
->>>>>>> 77cec44db4499a9bd057cf0dea2f7378041c7cbf
     return Scaffold(
       body: pages[_page],
       bottomNavigationBar: BottomNavigationBar(
@@ -117,18 +104,8 @@ class _BottomBarState extends State<BottomBar> {
                   ),
                 ),
               ),
-<<<<<<< HEAD
-              // child: Badge(
-              //   elevation: 0,
-              //   badgeContent: Text('2'),
-              //   badgeColor: Colors.white,
-              //   child: const Icon(
-              //     Icons.shopping_cart_outlined,
-              //   ),
-              // ),
-=======
-              child: const badges.Badge(
-                badgeContent: Text('3'),
+              child:  badges.Badge(
+                badgeContent: Text(userCartLen.toString()),
                 badgeStyle: badges.BadgeStyle(
                   elevation: 0,
                   badgeColor: Colors.white,
@@ -137,7 +114,6 @@ class _BottomBarState extends State<BottomBar> {
                   Icons.shopping_cart_outlined,
                 ),
               ),
->>>>>>> 77cec44db4499a9bd057cf0dea2f7378041c7cbf
             ),
             label: '',
           ),
