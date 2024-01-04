@@ -1,4 +1,6 @@
 import 'package:ecommerce_app_backend/common/widgets/loader.dart';
+import 'package:ecommerce_app_backend/features/home/services/home_services.dart';
+import 'package:ecommerce_app_backend/features/product_details/screens/product_details_screen.dart';
 import 'package:ecommerce_app_backend/models/product.dart';
 import 'package:flutter/material.dart';
 
@@ -11,26 +13,26 @@ class DealOfDay extends StatefulWidget {
 
 class _DealOfDayState extends State<DealOfDay> {
   Product? product;
-  //final HomeServices homeServices = HomeServices();
+  final HomeServices homeServices = HomeServices();
 
   @override
   void initState() {
     super.initState();
-    // fetchDealOfDay();
+    fetchDealOfDay();
   }
 
-  // void fetchDealOfDay() async {
-  //   product = await homeServices.fetchDealOfDay(context: context);
-  //   setState(() {});
-  // }
+  void fetchDealOfDay() async {
+    product = await homeServices.fetchDealOfDay(context: context);
+    setState(() {});
+  }
 
-  // void navigateToDetailScreen() {
-  //   Navigator.pushNamed(
-  //     context,
-  //     ProductDetailScreen.routeName,
-  //     arguments: product,
-  //   );
-  // }
+  void navigateToDetailScreen() {
+    Navigator.pushNamed(
+      context,
+      ProductDetailScreen.routeName,
+      arguments: product,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {

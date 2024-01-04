@@ -38,7 +38,7 @@ class _BottomBarState extends State<BottomBar> {
 
   @override
   Widget build(BuildContext context) {
-    // final userCartLen = context.watch<UserProvider>().user.cart.length;
+    final userCartLen = context.watch<UserProvider>().user.cart.length;
 
     return Scaffold(
       body: pages[_page],
@@ -104,8 +104,8 @@ class _BottomBarState extends State<BottomBar> {
                   ),
                 ),
               ),
-              child: const badges.Badge(
-                badgeContent: Text('3'),
+              child:  badges.Badge(
+                badgeContent: Text(userCartLen.toString()),
                 badgeStyle: badges.BadgeStyle(
                   elevation: 0,
                   badgeColor: Colors.white,

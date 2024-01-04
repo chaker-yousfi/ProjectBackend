@@ -5,7 +5,7 @@ import 'package:ecommerce_app_backend/features/auth/screens/auth_screen.dart';
 import 'package:ecommerce_app_backend/features/auth/services/auth_service.dart';
 import 'package:ecommerce_app_backend/features/home/screens/home_screen.dart';
 import 'package:ecommerce_app_backend/providers/user_provider.dart';
-import 'package:ecommerce_app_backend/routes.dart';
+import 'package:ecommerce_app_backend/router.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -37,19 +37,20 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'App backend',
+      debugShowCheckedModeBanner: false,
+      title: 'E-commerce App',
       theme: ThemeData(
         scaffoldBackgroundColor: GlobalVariables.backgroundColor,
-        colorScheme: ColorScheme.light(
+        colorScheme: const ColorScheme.light(
           primary: GlobalVariables.secondaryColor,
         ),
-        useMaterial3: true,
         appBarTheme: const AppBarTheme(
           elevation: 0,
           iconTheme: IconThemeData(
-            color: Colors.blue,
+            color: Colors.black,
           ),
         ),
+        useMaterial3: true, // can remove this line
       ),
       onGenerateRoute: (settings) => generateRoute(settings),
       home: Provider.of<UserProvider>(context).user.token.isNotEmpty

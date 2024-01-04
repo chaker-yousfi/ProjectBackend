@@ -3,9 +3,9 @@ import 'package:ecommerce_app_backend/features/home/widgets/address_box.dart';
 import 'package:ecommerce_app_backend/features/home/widgets/carousel_image.dart';
 import 'package:ecommerce_app_backend/features/home/widgets/deal_of_day.dart';
 import 'package:ecommerce_app_backend/features/home/widgets/top_categories.dart';
+import 'package:ecommerce_app_backend/features/search/screens/search_screen.dart';
 import 'package:ecommerce_app_backend/providers/user_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = '/home';
@@ -16,9 +16,9 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  // void navigateToSearchScreen(String query) {
-  //   Navigator.pushNamed(context, SearchScreen.routeName, arguments: query);
-  // }
+  void navigateToSearchScreen(String query) {
+    Navigator.pushNamed(context, SearchScreen.routeName, arguments: query);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     borderRadius: BorderRadius.circular(7),
                     elevation: 1,
                     child: TextFormField(
-                      //onFieldSubmitted:  ,//navigateToSearchScreen,
+                      onFieldSubmitted:navigateToSearchScreen,
                       decoration: InputDecoration(
                         prefixIcon: InkWell(
                           onTap: () {},

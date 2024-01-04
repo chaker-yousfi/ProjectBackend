@@ -9,7 +9,6 @@ import 'package:ecommerce_app_backend/models/product.dart';
 import 'package:ecommerce_app_backend/providers/user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-
 import 'package:provider/provider.dart';
 
 class AdminServices {
@@ -22,8 +21,9 @@ class AdminServices {
     required String category,
     required List<File> images,
   }) async {
-    final userProvider = Provider.of<UserProvider>(context, listen: false);
+    print("clicked");
 
+    final userProvider = Provider.of<UserProvider>(context, listen: false);
     try {
       final cloudinary = CloudinaryPublic('dexeo7vnn', 'uhnuaoxy');
       List<String> imageUrls = [];
@@ -66,7 +66,7 @@ class AdminServices {
     }
   }
 
-   Future<List<Product>> fetchAllProducts(BuildContext context) async {
+  Future<List<Product>> fetchAllProducts(BuildContext context) async {
     final userProvider = Provider.of<UserProvider>(context, listen: false);
     List<Product> productList = [];
     try {
@@ -97,8 +97,7 @@ class AdminServices {
     return productList;
   }
 
-
-   void deleteProduct({
+  void deleteProduct({
     required BuildContext context,
     required Product product,
     required VoidCallback onSuccess,
@@ -128,5 +127,4 @@ class AdminServices {
       showSnackBar(context, e.toString());
     }
   }
-
 }

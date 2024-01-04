@@ -1,10 +1,8 @@
 import 'dart:convert';
-
-import 'package:ecommerce_app_backend/common/widgets/bottom_bar.dart';
 import 'package:ecommerce_app_backend/constants/error_handling.dart';
+import 'package:ecommerce_app_backend/common/widgets/bottom_bar.dart';
 import 'package:ecommerce_app_backend/constants/global_variables.dart';
 import 'package:ecommerce_app_backend/constants/utils.dart';
-import 'package:ecommerce_app_backend/features/home/screens/home_screen.dart';
 import 'package:ecommerce_app_backend/models/user.dart';
 import 'package:ecommerce_app_backend/providers/user_provider.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +11,7 @@ import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthService {
+  // sign up user
   void signUpUser({
     required BuildContext context,
     required String email,
@@ -23,11 +22,12 @@ class AuthService {
       User user = User(
         id: '',
         name: name,
-        email: email,
         password: password,
+        email: email,
         address: '',
         type: '',
         token: '',
+        cart: [],
       );
 
       http.Response res = await http.post(
@@ -44,18 +44,16 @@ class AuthService {
         onSuccess: () {
           showSnackBar(
             context,
-            'Account created! Login with same credentials!',
+            'Account created! Login with the same credentials!',
           );
         },
       );
     } catch (e) {
-      showSnackBar(
-        context,
-        e.toString(),
-      );
+      showSnackBar(context, e.toString());
     }
   }
 
+  // sign in user
   void signInUser({
     required BuildContext context,
     required String email,
@@ -72,27 +70,6 @@ class AuthService {
           'Content-Type': 'application/json; charset=UTF-8',
         },
       );
-
-      print(res.body);
-
-      // httpErrorHandling(
-      //   response: res,
-      //   context: context,
-      //   onSuccess: () async {
-      //     SharedPreferences prefs = await SharedPreferences.getInstance();
-      //     Provider.of<UserProvider>(
-      //       context,
-      //       listen: false,
-      //     ).setUser(res.body);
-      //     await prefs.setString('x-auth-token', jsonDecode(res.body)['token']);
-      //     Navigator.pushNamedAndRemoveUntil(
-      //       context,
-      //       HomeScreen.routeName,
-      //       (route) => false,
-      //     );
-      //   },
-      // );
-
       httpErrorHandling(
         response: res,
         context: context,
@@ -108,13 +85,9 @@ class AuthService {
         },
       );
     } catch (e) {
-      showSnackBar(
-        context,
-        e.toString(),
-      );
+      showSnackBar(context, e.toString());
     }
   }
-
 
   // get user data
   void getUserData(
@@ -154,4 +127,7 @@ class AuthService {
       showSnackBar(context, e.toString());
     }
   }
+
+
+  
 }
