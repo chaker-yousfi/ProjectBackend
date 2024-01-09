@@ -1,9 +1,9 @@
+
 import 'package:ecommerce_app_backend/common/widgets/bottom_bar.dart';
 import 'package:ecommerce_app_backend/constants/global_variables.dart';
 import 'package:ecommerce_app_backend/features/admin/screens/admin_screen.dart';
 import 'package:ecommerce_app_backend/features/auth/screens/auth_screen.dart';
 import 'package:ecommerce_app_backend/features/auth/services/auth_service.dart';
-import 'package:ecommerce_app_backend/features/home/screens/home_screen.dart';
 import 'package:ecommerce_app_backend/providers/user_provider.dart';
 import 'package:ecommerce_app_backend/router.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +18,7 @@ void main() {
 }
 
 class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   State<MyApp> createState() => _MyAppState();
@@ -26,19 +26,18 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   final AuthService authService = AuthService();
+
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     authService.getUserData(context);
   }
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'E-commerce App',
+      title: 'Amazon Clone',
       theme: ThemeData(
         scaffoldBackgroundColor: GlobalVariables.backgroundColor,
         colorScheme: const ColorScheme.light(

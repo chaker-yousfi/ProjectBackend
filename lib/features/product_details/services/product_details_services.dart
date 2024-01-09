@@ -7,8 +7,8 @@ import 'package:ecommerce_app_backend/models/product.dart';
 import 'package:ecommerce_app_backend/models/user.dart';
 import 'package:ecommerce_app_backend/providers/user_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
+import 'package:http/http.dart' as http;
 
 class ProductDetailsServices {
   void addToCart({
@@ -29,14 +29,13 @@ class ProductDetailsServices {
         }),
       );
 
-      // ignore: use_build_context_synchronously
-      httpErrorHandling(
+      httpErrorHandle(
         response: res,
         context: context,
         onSuccess: () {
           User user =
               userProvider.user.copyWith(cart: jsonDecode(res.body)['cart']);
-            userProvider.setUserFromModel(user);
+          userProvider.setUserFromModel(user);
         },
       );
     } catch (e) {
@@ -64,7 +63,7 @@ class ProductDetailsServices {
         }),
       );
 
-      httpErrorHandling(
+      httpErrorHandle(
         response: res,
         context: context,
         onSuccess: () {},

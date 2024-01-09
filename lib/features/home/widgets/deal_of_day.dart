@@ -41,7 +41,7 @@ class _DealOfDayState extends State<DealOfDay> {
         : product!.name.isEmpty
             ? const SizedBox()
             : GestureDetector(
-                onTap: () {}, //navigateToDetailScreen,
+                onTap: navigateToDetailScreen,
                 child: Column(
                   children: [
                     Container(

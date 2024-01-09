@@ -21,11 +21,22 @@ class User {
     required this.cart,
   });
 
-  factory User.fromJson(String source) => User.fromMap(json.decode(source));
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'name': name,
+      'email': email,
+      'password': password,
+      'address': address,
+      'type': type,
+      'token': token,
+      'cart': cart,
+    };
+  }
 
   factory User.fromMap(Map<String, dynamic> map) {
     return User(
-      id: map['_id'] ?? '', // _id to match the json response
+      id: map['_id'] ?? '',
       name: map['name'] ?? '',
       email: map['email'] ?? '',
       password: map['password'] ?? '',
@@ -42,20 +53,9 @@ class User {
 
   String toJson() => json.encode(toMap());
 
-  Map<String, dynamic> toMap() {
-    return {
-      'id': id,
-      'name': name,
-      'email': email,
-      'password': password,
-      'address': address,
-      'type': type,
-      'token': token,
-      'cart': cart,
-    };
-  }
+  factory User.fromJson(String source) => User.fromMap(json.decode(source));
 
-   User copyWith({
+  User copyWith({
     String? id,
     String? name,
     String? email,
@@ -76,6 +76,4 @@ class User {
       cart: cart ?? this.cart,
     );
   }
-
-  
 }

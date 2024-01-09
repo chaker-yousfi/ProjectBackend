@@ -1,12 +1,13 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:ecommerce_app_backend/common/widgets/custom_button.dart';
 import 'package:ecommerce_app_backend/common/widgets/stars.dart';
+import 'package:ecommerce_app_backend/features/product_details/services/product_details_services.dart';
+import 'package:ecommerce_app_backend/providers/user_provider.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/material.dart';
+
 import 'package:ecommerce_app_backend/constants/global_variables.dart';
-import 'package:ecommerce_app_backend/features/product_details/services/product_details_service.dart';
 import 'package:ecommerce_app_backend/features/search/screens/search_screen.dart';
 import 'package:ecommerce_app_backend/models/product.dart';
-import 'package:ecommerce_app_backend/providers/user_provider.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:provider/provider.dart';
 
@@ -217,7 +218,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
               padding: const EdgeInsets.all(10),
               child: CustomButton(
                 text: 'Buy Now',
-                onTap: () {}, 
+                onTap: () {},
               ),
             ),
             const SizedBox(height: 10),
