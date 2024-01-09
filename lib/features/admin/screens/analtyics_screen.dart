@@ -3,7 +3,11 @@ import 'package:ecommerce_app_backend/features/admin/models/sales.dart';
 import 'package:ecommerce_app_backend/features/admin/services/admin_services.dart';
 import 'package:ecommerce_app_backend/features/admin/widgets/category_products_chart.dart';
 import 'package:charts_flutter_new/flutter.dart' as charts;
+<<<<<<< HEAD
 import  'package:flutter/material.dart';
+=======
+import 'package:flutter/material.dart';
+>>>>>>> f2245193559d846579decf896fe8c02fc576cb53
 
 class AnalyticsScreen extends StatefulWidget {
   const AnalyticsScreen({Key? key}) : super(key: key);

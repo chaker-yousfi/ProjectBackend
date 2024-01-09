@@ -33,6 +33,10 @@ userRouter.post("/api/add-to-cart", auth, async (req, res) => {
     user = await user.save();
     res.json(user);
   } catch (e) {
+<<<<<<< HEAD
+=======
+    console.log(e.message);
+>>>>>>> f2245193559d846579decf896fe8c02fc576cb53
     res.status(500).json({ error: e.message });
   }
 });
@@ -105,6 +109,7 @@ userRouter.post("/api/order", auth, async (req, res) => {
     order = await order.save();
     res.json(order);
   } catch (e) {
+    console.log(e.message);
     res.status(500).json({ error: e.message });
   }
 });
@@ -115,6 +120,10 @@ userRouter.get("/api/orders/me", auth, async (req, res) => {
     res.json(orders);
   } catch (e) {
     res.status(500).json({ error: e.message });
+<<<<<<< HEAD
+=======
+    console.log(e.message);
+>>>>>>> f2245193559d846579decf896fe8c02fc576cb53
   }
 });
 
