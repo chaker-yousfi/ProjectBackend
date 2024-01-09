@@ -1,6 +1,7 @@
 import 'dart:convert';
-import 'package:ecommerce_app_backend/constants/error_handling.dart';
+
 import 'package:ecommerce_app_backend/common/widgets/bottom_bar.dart';
+import 'package:ecommerce_app_backend/constants/error_handling.dart';
 import 'package:ecommerce_app_backend/constants/global_variables.dart';
 import 'package:ecommerce_app_backend/constants/utils.dart';
 import 'package:ecommerce_app_backend/models/user.dart';
@@ -38,7 +39,7 @@ class AuthService {
         },
       );
 
-      httpErrorHandling(
+      httpErrorHandle(
         response: res,
         context: context,
         onSuccess: () {
@@ -70,7 +71,7 @@ class AuthService {
           'Content-Type': 'application/json; charset=UTF-8',
         },
       );
-      httpErrorHandling(
+      httpErrorHandle(
         response: res,
         context: context,
         onSuccess: () async {
@@ -127,7 +128,4 @@ class AuthService {
       showSnackBar(context, e.toString());
     }
   }
-
-
-  
 }

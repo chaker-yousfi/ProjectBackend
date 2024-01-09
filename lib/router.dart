@@ -2,11 +2,12 @@ import 'package:ecommerce_app_backend/common/widgets/bottom_bar.dart';
 import 'package:ecommerce_app_backend/features/address/screens/address_screen.dart';
 import 'package:ecommerce_app_backend/features/admin/screens/add_product_screen.dart';
 import 'package:ecommerce_app_backend/features/auth/screens/auth_screen.dart';
-import 'package:ecommerce_app_backend/common/widgets/bottom_bar.dart';
 import 'package:ecommerce_app_backend/features/home/screens/category_deals_screen.dart';
 import 'package:ecommerce_app_backend/features/home/screens/home_screen.dart';
+import 'package:ecommerce_app_backend/features/order_details/screens/order_details.dart';
 import 'package:ecommerce_app_backend/features/product_details/screens/product_details_screen.dart';
 import 'package:ecommerce_app_backend/features/search/screens/search_screen.dart';
+import 'package:ecommerce_app_backend/models/order.dart';
 import 'package:ecommerce_app_backend/models/product.dart';
 import 'package:flutter/material.dart';
 
@@ -17,6 +18,7 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
         settings: routeSettings,
         builder: (_) => const AuthScreen(),
       );
+
     case HomeScreen.routeName:
       return MaterialPageRoute(
         settings: routeSettings,
@@ -27,13 +29,13 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
         settings: routeSettings,
         builder: (_) => const BottomBar(),
       );
-
     case AddProductScreen.routeName:
       return MaterialPageRoute(
         settings: routeSettings,
         builder: (_) => const AddProductScreen(),
       );
-      case CategoryDealsScreen.routeName:
+
+    case CategoryDealsScreen.routeName:
       var category = routeSettings.arguments as String;
       return MaterialPageRoute(
         settings: routeSettings,
@@ -41,7 +43,7 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
           category: category,
         ),
       );
-        case SearchScreen.routeName:
+    case SearchScreen.routeName:
       var searchQuery = routeSettings.arguments as String;
       return MaterialPageRoute(
         settings: routeSettings,
@@ -49,7 +51,7 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
           searchQuery: searchQuery,
         ),
       );
-      case ProductDetailScreen.routeName:
+    case ProductDetailScreen.routeName:
       var product = routeSettings.arguments as Product;
       return MaterialPageRoute(
         settings: routeSettings,
@@ -57,7 +59,7 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
           product: product,
         ),
       );
-      case AddressScreen.routeName:
+    case AddressScreen.routeName:
       var totalAmount = routeSettings.arguments as String;
       return MaterialPageRoute(
         settings: routeSettings,
@@ -65,11 +67,20 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
           totalAmount: totalAmount,
         ),
       );
+    case OrderDetailScreen.routeName:
+      var order = routeSettings.arguments as Order;
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => OrderDetailScreen(
+          order: order,
+        ),
+      );
     default:
       return MaterialPageRoute(
+        settings: routeSettings,
         builder: (_) => const Scaffold(
           body: Center(
-            child: Text("Screen does not exist !"),
+            child: Text('Screen does not exist!'),
           ),
         ),
       );

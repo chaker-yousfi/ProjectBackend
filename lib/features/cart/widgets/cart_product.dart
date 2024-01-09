@@ -1,5 +1,5 @@
 import 'package:ecommerce_app_backend/features/cart/services/cart_services.dart';
-import 'package:ecommerce_app_backend/features/product_details/services/product_details_service.dart';
+import 'package:ecommerce_app_backend/features/product_details/services/product_details_services.dart';
 import 'package:ecommerce_app_backend/models/product.dart';
 import 'package:ecommerce_app_backend/providers/user_provider.dart';
 import 'package:flutter/material.dart';

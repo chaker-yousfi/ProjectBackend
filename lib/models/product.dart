@@ -9,9 +9,8 @@ class Product {
   final List<String> images;
   final String category;
   final double price;
-  String? id;
+  final String? id;
   final List<Rating>? rating;
-
   Product({
     required this.name,
     required this.description,

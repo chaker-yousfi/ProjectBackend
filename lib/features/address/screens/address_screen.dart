@@ -1,6 +1,8 @@
-import 'package:ecommerce_app_backend/common/widgets/custom_textField.dart';
+import 'package:ecommerce_app_backend/common/widgets/custom_textfield.dart';
+import 'package:ecommerce_app_backend/common/widgets/custom_textfield.dart';
 import 'package:ecommerce_app_backend/constants/global_variables.dart';
 import 'package:ecommerce_app_backend/constants/utils.dart';
+import 'package:ecommerce_app_backend/features/address/services/address_services.dart';
 import 'package:ecommerce_app_backend/providers/user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -24,12 +26,22 @@ class _AddressScreenState extends State<AddressScreen> {
   final TextEditingController cityController = TextEditingController();
   final _addressFormKey = GlobalKey<FormState>();
 
+  final AddressServices addressServices = AddressServices();
+
+ //List<PaymentItem> paymentItems = [];
+
   String addressToBeUsed = "";
 
   @override
   void initState() {
     super.initState();
-    
+    // paymentItems.add(
+    //   PaymentItem(
+    //     amount: widget.totalAmount,
+    //     label: 'Total Amount',
+    //     status: PaymentItemStatus.final_price,
+    //   ),
+    // );
   }
 
   @override
@@ -39,6 +51,21 @@ class _AddressScreenState extends State<AddressScreen> {
     areaController.dispose();
     pincodeController.dispose();
     cityController.dispose();
+  }
+
+  void onGooglePayResult(res) {
+    if (Provider.of<UserProvider>(context, listen: false)
+        .user
+        .address
+        .isEmpty) {
+      addressServices.saveUserAddress(
+          context: context, address: addressToBeUsed);
+    }
+    addressServices.placeOrder(
+      context: context,
+      address: addressToBeUsed,
+      totalSum: double.parse(widget.totalAmount),
+    );
   }
 
   void payPressed(String addressFromProvider) {
@@ -61,12 +88,13 @@ class _AddressScreenState extends State<AddressScreen> {
     } else {
       showSnackBar(context, 'ERROR');
     }
+    print(addressToBeUsed);
   }
 
   @override
   Widget build(BuildContext context) {
     var address = context.watch<UserProvider>().user.address;
-      
+
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(60),
@@ -140,9 +168,19 @@ class _AddressScreenState extends State<AddressScreen> {
                   ],
                 ),
               ),
-              
-              const SizedBox(height: 10),
-              
+              ElevatedButton(onPressed: () {}, child: Text('TEST')),
+              // GooglePayButton(
+              //   onPressed: () => payPressed(address),
+              //   paymentConfigurationAsset: 'gpay.json',
+              //   onPaymentResult: onGooglePayResult,
+              //   paymentItems: paymentItems,
+              //   height: 50,
+              //   margin: const EdgeInsets.only(top: 15),
+              //   loadingIndicator: const Center(
+              //     child: CircularProgressIndicator(),
+              //   ),
+              // ),
+              // const SizedBox(height: 10),
             ],
           ),
         ),

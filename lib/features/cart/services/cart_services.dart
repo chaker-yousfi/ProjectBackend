@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:ecommerce_app_backend/constants/error_handling.dart';
 import 'package:ecommerce_app_backend/constants/global_variables.dart';
 import 'package:ecommerce_app_backend/constants/utils.dart';
@@ -5,10 +7,8 @@ import 'package:ecommerce_app_backend/models/product.dart';
 import 'package:ecommerce_app_backend/models/user.dart';
 import 'package:ecommerce_app_backend/providers/user_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
-import 'dart:convert';
-
+import 'package:http/http.dart' as http;
 
 class CartServices {
   void removeFromCart({
@@ -26,7 +26,7 @@ class CartServices {
         },
       );
 
-      httpErrorHandling(
+      httpErrorHandle(
         response: res,
         context: context,
         onSuccess: () {

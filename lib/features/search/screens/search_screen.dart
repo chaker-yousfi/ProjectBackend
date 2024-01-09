@@ -3,14 +3,17 @@ import 'package:ecommerce_app_backend/constants/global_variables.dart';
 import 'package:ecommerce_app_backend/features/home/widgets/address_box.dart';
 import 'package:ecommerce_app_backend/features/product_details/screens/product_details_screen.dart';
 import 'package:ecommerce_app_backend/features/search/services/search_services.dart';
-import 'package:ecommerce_app_backend/features/search/widgets/searched_product.dart';
+import 'package:ecommerce_app_backend/features/search/widget/searched_product.dart';
 import 'package:ecommerce_app_backend/models/product.dart';
 import 'package:flutter/material.dart';
 
 class SearchScreen extends StatefulWidget {
   static const String routeName = '/search-screen';
   final String searchQuery;
-  const SearchScreen({super.key, required this.searchQuery});
+  const SearchScreen({
+    Key? key,
+    required this.searchQuery,
+  }) : super(key: key);
 
   @override
   State<SearchScreen> createState() => _SearchScreenState();
@@ -19,28 +22,27 @@ class SearchScreen extends StatefulWidget {
 class _SearchScreenState extends State<SearchScreen> {
   List<Product>? products;
   final SearchServices searchServices = SearchServices();
+
   @override
   void initState() {
     super.initState();
-    fetchSearchedProducts();
+    fetchSearchedProduct();
   }
 
-  fetchSearchedProducts() async {
-    products = await searchServices.fetchSearchedProducts(
+  fetchSearchedProduct() async {
+    products = await searchServices.fetchSearchedProduct(
         context: context, searchQuery: widget.searchQuery);
-        setState(() {
-          
-        });
+    setState(() {});
   }
-   void navigateToSearchScreen(String query) {
+
+  void navigateToSearchScreen(String query) {
     Navigator.pushNamed(context, SearchScreen.routeName, arguments: query);
   }
 
   @override
   Widget build(BuildContext context) {
-    return products==null? const Loader() 
-    :Scaffold(
-       appBar: PreferredSize(
+    return Scaffold(
+      appBar: PreferredSize(
         preferredSize: const Size.fromHeight(60),
         child: AppBar(
           flexibleSpace: Container(
@@ -59,7 +61,7 @@ class _SearchScreenState extends State<SearchScreen> {
                     borderRadius: BorderRadius.circular(7),
                     elevation: 1,
                     child: TextFormField(
-                      onFieldSubmitted:navigateToSearchScreen,
+                      onFieldSubmitted: navigateToSearchScreen,
                       decoration: InputDecoration(
                         prefixIcon: InkWell(
                           onTap: () {},
@@ -112,7 +114,9 @@ class _SearchScreenState extends State<SearchScreen> {
           ),
         ),
       ),
-      body: Column(
+      body: products == null
+          ? const Loader()
+          : Column(
               children: [
                 const AddressBox(),
                 const SizedBox(height: 10),

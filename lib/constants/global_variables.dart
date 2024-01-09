@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-String uri = 'http://192.168.0.7:3000';
+String uri = 'http://192.168.67.196:3000';
+
 
 class GlobalVariables {
   // COLORS
@@ -18,8 +19,8 @@ class GlobalVariables {
   static var selectedNavBarColor = Colors.cyan[800]!;
   static const unselectedNavBarColor = Colors.black87;
 
-
-   static const List<String> carouselImages = [
+  // STATIC IMAGES
+  static const List<String> carouselImages = [
     'https://images-eu.ssl-images-amazon.com/images/G/31/img21/Wireless/WLA/TS/D37847648_Accessories_savingdays_Jan22_Cat_PC_1500.jpg',
     'https://images-eu.ssl-images-amazon.com/images/G/31/img2021/Vday/bwl/English.jpg',
     'https://images-eu.ssl-images-amazon.com/images/G/31/img22/Wireless/AdvantagePrime/BAU/14thJan/D37196025_IN_WL_AdvantageJustforPrime_Jan_Mob_ingress-banner_1242x450.jpg',
@@ -30,15 +31,15 @@ class GlobalVariables {
   static const List<Map<String, String>> categoryImages = [
     {
       'title': 'Mobiles',
-      'image': 'assets/images/books.jpeg',
+      'image': 'assets/images/mobiles.jpeg',
     },
     {
       'title': 'Essentials',
-      'image': 'assets/images/books.jpeg',
+      'image': 'assets/images/essentials.jpeg',
     },
     {
       'title': 'Appliances',
-      'image': 'assets/images/books.jpeg',
+      'image': 'assets/images/appliances.jpeg',
     },
     {
       'title': 'Books',
@@ -46,7 +47,7 @@ class GlobalVariables {
     },
     {
       'title': 'Fashion',
-      'image': 'assets/images/books.jpeg',
+      'image': 'assets/images/fashion.jpeg',
     },
   ];
 }
