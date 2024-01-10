@@ -1,9 +1,14 @@
 import 'package:ecommerce_app_backend/common/widgets/custom_button.dart';
 import 'package:ecommerce_app_backend/common/widgets/custom_textfield.dart';
 import 'package:ecommerce_app_backend/constants/global_variables.dart';
+import 'package:ecommerce_app_backend/extensions/buildcontext/loc.dart';
 import 'package:ecommerce_app_backend/features/auth/services/auth_service.dart';
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:google_fonts/google_fonts.dart';
+=======
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+>>>>>>> 81da3b7a91fed720900c085bf84985189df7339d
 
 enum Auth {
   signin,
@@ -63,9 +68,15 @@ class _AuthScreenState extends State<AuthScreen> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+<<<<<<< HEAD
                Text(
                 'Welcome to your Favorite Store',
                 style: GoogleFonts.plusJakartaSans(
+=======
+              Text(
+                context.loc.welcome_text,
+                style: TextStyle(
+>>>>>>> 81da3b7a91fed720900c085bf84985189df7339d
                   fontSize: 22,
                   fontWeight: FontWeight.w500,
                 ),
