@@ -1,6 +1,7 @@
 import 'package:ecommerce_app_backend/constants/global_variables.dart';
 import 'package:ecommerce_app_backend/providers/user_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class BelowAppBar extends StatelessWidget {
@@ -20,14 +21,14 @@ class BelowAppBar extends StatelessWidget {
           RichText(
             text: TextSpan(
               text: 'Hello, ',
-              style: const TextStyle(
+              style: GoogleFonts.plusJakartaSans(
                 fontSize: 22,
                 color: Colors.black,
               ),
               children: [
                 TextSpan(
                   text: user.name,
-                  style: const TextStyle(
+                  style:  GoogleFonts.plusJakartaSans(
                     fontSize: 22,
                     color: Colors.black,
                     fontWeight: FontWeight.w600,

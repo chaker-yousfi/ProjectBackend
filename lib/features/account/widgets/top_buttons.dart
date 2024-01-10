@@ -16,7 +16,7 @@ class TopButtons extends StatelessWidget {
               onTap: () {},
             ),
             AccountButton(
-              text: 'Turn Seller',
+              text: 'Your Wish List',
               onTap: () {},
             ),
           ],
@@ -28,10 +28,7 @@ class TopButtons extends StatelessWidget {
               text: 'Log Out',
               onTap: () => AccountServices().logOut(context),
             ),
-            AccountButton(
-              text: 'Your Wish List',
-              onTap: () {},
-            ),
+            
           ],
         ),
       ],

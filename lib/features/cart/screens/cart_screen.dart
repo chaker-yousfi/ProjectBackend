@@ -7,6 +7,7 @@ import 'package:ecommerce_app_backend/features/home/widgets/address_box.dart';
 import 'package:ecommerce_app_backend/features/search/screens/search_screen.dart';
 import 'package:ecommerce_app_backend/providers/user_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class CartScreen extends StatefulWidget {
@@ -54,7 +55,7 @@ class _CartScreenState extends State<CartScreen> {
                   height: 42,
                   margin: const EdgeInsets.only(left: 15),
                   child: Material(
-                    borderRadius: BorderRadius.circular(7),
+                    borderRadius: BorderRadius.circular(15),
                     elevation: 1,
                     child: TextFormField(
                       onFieldSubmitted: navigateToSearchScreen,
@@ -77,22 +78,22 @@ class _CartScreenState extends State<CartScreen> {
                         contentPadding: const EdgeInsets.only(top: 10),
                         border: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(
-                            Radius.circular(7),
+                            Radius.circular(15),
                           ),
                           borderSide: BorderSide.none,
                         ),
                         enabledBorder: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(
-                            Radius.circular(7),
+                            Radius.circular(15),
                           ),
                           borderSide: BorderSide(
                             color: Colors.black38,
                             width: 1,
                           ),
                         ),
-                        hintText: 'Search Amazon.in',
-                        hintStyle: const TextStyle(
-                          fontWeight: FontWeight.w500,
+                        hintText: 'Search',
+                        hintStyle: GoogleFonts.plusJakartaSans(
+                          fontWeight: FontWeight.w600,
                           fontSize: 17,
                         ),
                       ),
@@ -120,7 +121,6 @@ class _CartScreenState extends State<CartScreen> {
               child: CustomButton(
                 text: 'Proceed to Buy (${user.cart.length} items)',
                 onTap: () => navigateToAddress(sum),
-                color: Colors.yellow[600],
               ),
             ),
             const SizedBox(height: 15),

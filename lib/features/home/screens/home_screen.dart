@@ -5,6 +5,7 @@ import 'package:ecommerce_app_backend/features/home/widgets/deal_of_day.dart';
 import 'package:ecommerce_app_backend/features/home/widgets/top_categories.dart';
 import 'package:ecommerce_app_backend/features/search/screens/search_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = '/home';
@@ -38,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: 42,
                   margin: const EdgeInsets.only(left: 15),
                   child: Material(
-                    borderRadius: BorderRadius.circular(7),
+                    borderRadius: BorderRadius.circular(15),
                     elevation: 1,
                     child: TextFormField(
                       onFieldSubmitted: navigateToSearchScreen,
@@ -61,22 +62,22 @@ class _HomeScreenState extends State<HomeScreen> {
                         contentPadding: const EdgeInsets.only(top: 10),
                         border: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(
-                            Radius.circular(7),
+                            Radius.circular(15),
                           ),
                           borderSide: BorderSide.none,
                         ),
                         enabledBorder: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(
-                            Radius.circular(7),
+                            Radius.circular(15),
                           ),
                           borderSide: BorderSide(
                             color: Colors.black38,
                             width: 1,
                           ),
                         ),
-                        hintText: 'Search Amazon.in',
-                        hintStyle: const TextStyle(
-                          fontWeight: FontWeight.w500,
+                        hintText: 'Search',
+                        hintStyle: GoogleFonts.plusJakartaSans(
+                          fontWeight: FontWeight.w600,
                           fontSize: 17,
                         ),
                       ),

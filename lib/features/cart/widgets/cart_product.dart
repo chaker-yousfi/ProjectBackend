@@ -3,6 +3,7 @@ import 'package:ecommerce_app_backend/features/product_details/services/product_
 import 'package:ecommerce_app_backend/models/product.dart';
 import 'package:ecommerce_app_backend/providers/user_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class CartProduct extends StatefulWidget {
@@ -62,8 +63,9 @@ class _CartProductState extends State<CartProduct> {
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: Text(
                       product.name,
-                      style: const TextStyle(
-                        fontSize: 16,
+                      style: GoogleFonts.plusJakartaSans(
+                        fontSize: 17,
+                        fontWeight: FontWeight.w500
                       ),
                       maxLines: 2,
                     ),
@@ -72,8 +74,8 @@ class _CartProductState extends State<CartProduct> {
                     width: 235,
                     padding: const EdgeInsets.only(left: 10, top: 5),
                     child: Text(
-                      '\$${product.price}',
-                      style: const TextStyle(
+                      '${product.price} DZD',
+                      style:  GoogleFonts.plusJakartaSans(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                       ),
@@ -83,15 +85,18 @@ class _CartProductState extends State<CartProduct> {
                   Container(
                     width: 235,
                     padding: const EdgeInsets.only(left: 10),
-                    child: const Text('Eligible for FREE Shipping'),
+                    child:  Text('Eligible for FREE Shipping',
+                    style: GoogleFonts.plusJakartaSans(
+                      
+                    ),),
                   ),
                   Container(
                     width: 235,
                     padding: const EdgeInsets.only(left: 10, top: 5),
-                    child: const Text(
+                    child:  Text(
                       'In Stock',
-                      style: TextStyle(
-                        color: Colors.teal,
+                      style: GoogleFonts.plusJakartaSans(
+                        color: Color(0xff9b96d6),
                       ),
                       maxLines: 2,
                     ),

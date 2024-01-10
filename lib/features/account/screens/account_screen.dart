@@ -21,15 +21,16 @@ class AccountScreen extends StatelessWidget {
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Container(
-                alignment: Alignment.topLeft,
-                child: Image.asset(
-                  'assets/images/amazon_in.png',
-                  width: 120,
-                  height: 45,
-                  color: Colors.black,
-                ),
-              ),
+              // Container(
+              //   alignment: Alignment.topLeft,
+              //   child: Image.asset(
+              //     'assets/images/champion.jpeg',
+              //     width: 120,
+              //     height: 45,
+              //     color: Colors.black,
+              //   ),
+              // ),
+              SizedBox(width: 120,),
               Container(
                 padding: const EdgeInsets.only(left: 15, right: 15),
                 child: Row(

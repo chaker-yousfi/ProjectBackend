@@ -4,6 +4,7 @@ import 'package:ecommerce_app_backend/constants/global_variables.dart';
 import 'package:ecommerce_app_backend/features/admin/screens/admin_screen.dart';
 import 'package:ecommerce_app_backend/features/auth/screens/auth_screen.dart';
 import 'package:ecommerce_app_backend/features/auth/services/auth_service.dart';
+import 'package:ecommerce_app_backend/features/welcome/welcome_screen.dart';
 import 'package:ecommerce_app_backend/providers/user_provider.dart';
 import 'package:ecommerce_app_backend/router.dart';
 import 'package:flutter/material.dart';
@@ -37,7 +38,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Amazon Clone',
+      title: 'Ecommerce App',
       theme: ThemeData(
         scaffoldBackgroundColor: GlobalVariables.backgroundColor,
         colorScheme: const ColorScheme.light(
@@ -57,7 +58,7 @@ class _MyAppState extends State<MyApp> {
       //         ? const BottomBar()
       //         : const AdminScreen()
       //     : const AuthScreen(),
-      home: const AuthScreen(),
+      home:  AuthScreen(),
     );
   }
 }

@@ -5,6 +5,7 @@ import 'package:ecommerce_app_backend/features/account/widgets/single_product.da
 import 'package:ecommerce_app_backend/features/order_details/screens/order_details.dart';
 import 'package:ecommerce_app_backend/models/order.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Orders extends StatefulWidget {
   const Orders({Key? key}) : super(key: key);
@@ -41,9 +42,9 @@ class _OrdersState extends State<Orders> {
                     padding: const EdgeInsets.only(
                       left: 15,
                     ),
-                    child: const Text(
+                    child: Text(
                       'Your Orders',
-                      style: TextStyle(
+                      style: GoogleFonts.plusJakartaSans(
                         fontSize: 18,
                         fontWeight: FontWeight.w600,
                       ),
@@ -55,8 +56,8 @@ class _OrdersState extends State<Orders> {
                     ),
                     child: Text(
                       'See all',
-                      style: TextStyle(
-                        color: GlobalVariables.selectedNavBarColor,
+                      style: GoogleFonts.plusJakartaSans(
+                        color: Color(0xff9b96d6),
                       ),
                     ),
                   ),

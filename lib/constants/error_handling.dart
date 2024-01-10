@@ -14,14 +14,6 @@ void httpErrorHandle({
       onSuccess();
       break;
     case 400:
-<<<<<<< HEAD
-      showSnackBar(context, jsonDecode(response.body)['msg']);
-      break;
-    case 500:
-      showSnackBar(context, jsonDecode(response.body)['error']);
-      break;
-    default:
-=======
       print(jsonDecode(response.body)['msg']);
       showSnackBar(context, jsonDecode(response.body)['msg']);
       break;
@@ -34,7 +26,6 @@ void httpErrorHandle({
     default:
       print("default");
       // print(jsonDecode(response.body)['msg']);
->>>>>>> f2245193559d846579decf896fe8c02fc576cb53
       showSnackBar(context, response.body);
   }
 }

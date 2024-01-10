@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class AccountButton extends StatelessWidget {
   final String text;
@@ -30,7 +31,7 @@ class AccountButton extends StatelessWidget {
           onPressed: onTap,
           child: Text(
             text,
-            style: const TextStyle(
+            style:  GoogleFonts.plusJakartaSans(
               color: Colors.black,
               fontWeight: FontWeight.normal,
             ),

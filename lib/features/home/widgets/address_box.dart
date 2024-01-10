@@ -1,5 +1,6 @@
 import 'package:ecommerce_app_backend/providers/user_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class AddressBox extends StatelessWidget {
@@ -14,7 +15,7 @@ class AddressBox extends StatelessWidget {
       decoration: const BoxDecoration(
         gradient: LinearGradient(
           colors: [
-            Color.fromARGB(255, 114, 226, 221),
+             Color(0xff9b96d6),
             Color.fromARGB(255, 162, 236, 233),
           ],
           stops: [0.5, 1.0],
@@ -32,8 +33,9 @@ class AddressBox extends StatelessWidget {
               padding: const EdgeInsets.only(left: 5),
               child: Text(
                 'Delivery to ${user.name} - ${user.address}',
-                style: const TextStyle(
+                style: GoogleFonts.plusJakartaSans(
                   fontWeight: FontWeight.w500,
+                  fontSize: 15
                 ),
                 overflow: TextOverflow.ellipsis,
               ),

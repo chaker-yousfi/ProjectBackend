@@ -1,6 +1,7 @@
 import 'package:ecommerce_app_backend/constants/global_variables.dart';
 import 'package:ecommerce_app_backend/features/home/screens/category_deals_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class TopCategories extends StatelessWidget {
   const TopCategories({Key? key}) : super(key: key);
@@ -40,9 +41,9 @@ class TopCategories extends StatelessWidget {
                 ),
                 Text(
                   GlobalVariables.categoryImages[index]['title']!,
-                  style: const TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.w400,
+                  style:  GoogleFonts.plusJakartaSans(
+                    fontSize: 13,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
               ],

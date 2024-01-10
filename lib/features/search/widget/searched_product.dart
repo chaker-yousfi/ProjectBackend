@@ -1,6 +1,7 @@
 import 'package:ecommerce_app_backend/common/widgets/stars.dart';
 import 'package:ecommerce_app_backend/models/product.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class SearchedProduct extends StatelessWidget {
   final Product product;
@@ -40,8 +41,8 @@ class SearchedProduct extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: Text(
                       product.name,
-                      style: const TextStyle(
-                        fontSize: 16,
+                      style:  GoogleFonts.plusJakartaSans(
+                        fontSize: 17,
                       ),
                       maxLines: 2,
                     ),
@@ -57,8 +58,8 @@ class SearchedProduct extends StatelessWidget {
                     width: 235,
                     padding: const EdgeInsets.only(left: 10, top: 5),
                     child: Text(
-                      '\$${product.price}',
-                      style: const TextStyle(
+                      '${product.price} DZD',
+                      style:  GoogleFonts.plusJakartaSans(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                       ),
@@ -68,15 +69,16 @@ class SearchedProduct extends StatelessWidget {
                   Container(
                     width: 235,
                     padding: const EdgeInsets.only(left: 10),
-                    child: const Text('Eligible for FREE Shipping'),
+                    child:  Text('Eligible for FREE Shipping',
+                    style: GoogleFonts.plusJakartaSans(),),
                   ),
                   Container(
                     width: 235,
                     padding: const EdgeInsets.only(left: 10, top: 5),
-                    child: const Text(
+                    child:  Text(
                       'In Stock',
-                      style: TextStyle(
-                        color: Colors.teal,
+                      style: GoogleFonts.plusJakartaSans(
+                        color: Color(0xff9b96d6),
                       ),
                       maxLines: 2,
                     ),

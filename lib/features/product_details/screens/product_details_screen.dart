@@ -9,6 +9,7 @@ import 'package:ecommerce_app_backend/constants/global_variables.dart';
 import 'package:ecommerce_app_backend/features/search/screens/search_screen.dart';
 import 'package:ecommerce_app_backend/models/product.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class ProductDetailScreen extends StatefulWidget {
@@ -76,7 +77,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                   height: 42,
                   margin: const EdgeInsets.only(left: 15),
                   child: Material(
-                    borderRadius: BorderRadius.circular(7),
+                    borderRadius: BorderRadius.circular(15),
                     elevation: 1,
                     child: TextFormField(
                       onFieldSubmitted: navigateToSearchScreen,
@@ -99,22 +100,22 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                         contentPadding: const EdgeInsets.only(top: 10),
                         border: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(
-                            Radius.circular(7),
+                            Radius.circular(15),
                           ),
                           borderSide: BorderSide.none,
                         ),
                         enabledBorder: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(
-                            Radius.circular(7),
+                            Radius.circular(15),
                           ),
                           borderSide: BorderSide(
                             color: Colors.black38,
                             width: 1,
                           ),
                         ),
-                        hintText: 'Search Amazon.in',
-                        hintStyle: const TextStyle(
-                          fontWeight: FontWeight.w500,
+                        hintText: 'Search',
+                        hintStyle:  GoogleFonts.plusJakartaSans(
+                          fontWeight: FontWeight.w600,
                           fontSize: 17,
                         ),
                       ),
@@ -157,8 +158,9 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
               ),
               child: Text(
                 widget.product.name,
-                style: const TextStyle(
-                  fontSize: 15,
+                style: GoogleFonts.plusJakartaSans(
+                  fontSize: 25,
+                  fontWeight: FontWeight.w700
                 ),
               ),
             ),
@@ -188,18 +190,18 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
               child: RichText(
                 text: TextSpan(
                   text: 'Deal Price: ',
-                  style: const TextStyle(
-                    fontSize: 16,
-                    color: Colors.black,
+                  style: GoogleFonts.plusJakartaSans(
+                    fontSize: 18,
+                    color: Color(0xff9b96d6),
                     fontWeight: FontWeight.bold,
                   ),
                   children: [
                     TextSpan(
-                      text: '\$${widget.product.price}',
-                      style: const TextStyle(
+                      text: '${widget.product.price} DZD',
+                      style:  GoogleFonts.plusJakartaSans(
                         fontSize: 22,
-                        color: Colors.red,
-                        fontWeight: FontWeight.w500,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                   ],
@@ -219,6 +221,8 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
               child: CustomButton(
                 text: 'Buy Now',
                 onTap: () {},
+                color: Color(0xff9b96d6),
+
               ),
             ),
             const SizedBox(height: 10),
@@ -227,7 +231,6 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
               child: CustomButton(
                 text: 'Add to Cart',
                 onTap: addToCart,
-                color: const Color.fromRGBO(254, 216, 19, 1),
               ),
             ),
             const SizedBox(height: 10),
@@ -235,11 +238,11 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
               color: Colors.black12,
               height: 5,
             ),
-            const Padding(
+             Padding(
               padding: EdgeInsets.symmetric(horizontal: 10.0),
               child: Text(
                 'Rate The Product',
-                style: TextStyle(
+                style: GoogleFonts.plusJakartaSans(
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
                 ),

@@ -3,6 +3,7 @@ import 'package:ecommerce_app_backend/features/home/services/home_services.dart'
 import 'package:ecommerce_app_backend/features/product_details/screens/product_details_screen.dart';
 import 'package:ecommerce_app_backend/models/product.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class DealOfDay extends StatefulWidget {
   const DealOfDay({Key? key}) : super(key: key);
@@ -47,9 +48,12 @@ class _DealOfDayState extends State<DealOfDay> {
                     Container(
                       alignment: Alignment.topLeft,
                       padding: const EdgeInsets.only(left: 10, top: 15),
-                      child: const Text(
+                      child: Text(
                         'Deal of the day',
-                        style: TextStyle(fontSize: 20),
+                        style: GoogleFonts.plusJakartaSans(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w700,
+                          ),
                       ),
                     ),
                     Image.network(
@@ -60,17 +64,22 @@ class _DealOfDayState extends State<DealOfDay> {
                     Container(
                       padding: const EdgeInsets.only(left: 15),
                       alignment: Alignment.topLeft,
-                      child: const Text(
-                        '\$100',
-                        style: TextStyle(fontSize: 18),
+                      child: Text(
+                        '\1000 DZD ',
+                         style: GoogleFonts.plusJakartaSans(
+                          fontWeight: FontWeight.w900,
+                          fontSize: 20,
+                          color: Color(0xff9b96d6),
+              ),
                       ),
                     ),
                     Container(
                       alignment: Alignment.topLeft,
                       padding:
                           const EdgeInsets.only(left: 15, top: 5, right: 40),
-                      child: const Text(
-                        'Rivaan',
+                      child:  Text(
+                        'New',
+                        style: GoogleFonts.plusJakartaSans(fontSize: 20, fontWeight: FontWeight.w700),
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                       ),
@@ -98,8 +107,10 @@ class _DealOfDayState extends State<DealOfDay> {
                       alignment: Alignment.topLeft,
                       child: Text(
                         'See all deals',
-                        style: TextStyle(
-                          color: Colors.cyan[800],
+                        style: GoogleFonts.plusJakartaSans(
+                          color: Color(0xff9b96d6),
+                          fontSize: 15,
+                          fontWeight: FontWeight.w400
                         ),
                       ),
                     ),

@@ -29,11 +29,7 @@ class _AddressScreenState extends State<AddressScreen> {
 
   final AddressServices addressServices = AddressServices();
 
-<<<<<<< HEAD
-  //List<PaymentItem> paymentItems = [];
-=======
  //List<PaymentItem> paymentItems = [];
->>>>>>> f2245193559d846579decf896fe8c02fc576cb53
 
   String addressToBeUsed = "";
 

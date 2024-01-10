@@ -4,6 +4,7 @@ import 'package:ecommerce_app_backend/features/home/services/home_services.dart'
 import 'package:ecommerce_app_backend/features/product_details/screens/product_details_screen.dart';
 import 'package:ecommerce_app_backend/models/product.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CategoryDealsScreen extends StatefulWidget {
   static const String routeName = '/category-deals';
@@ -48,8 +49,9 @@ class _CategoryDealsScreenState extends State<CategoryDealsScreen> {
           ),
           title: Text(
             widget.category,
-            style: const TextStyle(
+            style: GoogleFonts.plusJakartaSans(
               color: Colors.black,
+              fontWeight: FontWeight.w600,
             ),
           ),
         ),
@@ -61,11 +63,14 @@ class _CategoryDealsScreenState extends State<CategoryDealsScreen> {
                 Container(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-                  alignment: Alignment.topLeft,
+                  alignment: Alignment.center,
                   child: Text(
                     'Keep shopping for ${widget.category}',
-                    style: const TextStyle(
-                      fontSize: 20,
+                    textAlign: TextAlign.center,
+                    style: GoogleFonts.plusJakartaSans(
+                      fontSize: 23,
+                      fontWeight: FontWeight.w700,
+                      color: Color(0xff9b96d6),
                     ),
                   ),
                 ),
@@ -121,6 +126,7 @@ class _CategoryDealsScreenState extends State<CategoryDealsScreen> {
                                 product.name,
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
+                                style: GoogleFonts.plusJakartaSans(),
                               ),
                             ),
                           ],

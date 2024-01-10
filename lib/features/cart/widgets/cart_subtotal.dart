@@ -1,5 +1,6 @@
 import 'package:ecommerce_app_backend/providers/user_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class CartSubtotal extends StatelessWidget {
@@ -16,16 +17,19 @@ class CartSubtotal extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.all(10),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text(
-            'Subtotal ',
-            style: TextStyle(
+           Text(
+            'Subtotal:',
+            style: GoogleFonts.plusJakartaSans(
               fontSize: 20,
+              fontWeight: FontWeight.w700,
+              color: Color(0xff9b96d6),
             ),
           ),
           Text(
-            '\$$sum',
-            style: const TextStyle(
+            ' $sum DZD',
+            style: GoogleFonts.plusJakartaSans(
               fontSize: 20,
               fontWeight: FontWeight.bold,
             ),

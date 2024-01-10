@@ -6,6 +6,7 @@ import 'package:ecommerce_app_backend/features/search/services/search_services.d
 import 'package:ecommerce_app_backend/features/search/widget/searched_product.dart';
 import 'package:ecommerce_app_backend/models/product.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class SearchScreen extends StatefulWidget {
   static const String routeName = '/search-screen';
@@ -51,14 +52,14 @@ class _SearchScreenState extends State<SearchScreen> {
             ),
           ),
           title: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Expanded(
                 child: Container(
                   height: 42,
-                  margin: const EdgeInsets.only(left: 15),
+                  margin: const EdgeInsets.only(left: 1),
                   child: Material(
-                    borderRadius: BorderRadius.circular(7),
+                    borderRadius: BorderRadius.circular(15),
                     elevation: 1,
                     child: TextFormField(
                       onFieldSubmitted: navigateToSearchScreen,
@@ -67,7 +68,7 @@ class _SearchScreenState extends State<SearchScreen> {
                           onTap: () {},
                           child: const Padding(
                             padding: EdgeInsets.only(
-                              left: 6,
+                              left: 0,
                             ),
                             child: Icon(
                               Icons.search,
@@ -81,22 +82,22 @@ class _SearchScreenState extends State<SearchScreen> {
                         contentPadding: const EdgeInsets.only(top: 10),
                         border: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(
-                            Radius.circular(7),
+                            Radius.circular(15),
                           ),
                           borderSide: BorderSide.none,
                         ),
                         enabledBorder: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(
-                            Radius.circular(7),
+                            Radius.circular(15),
                           ),
                           borderSide: BorderSide(
                             color: Colors.black38,
                             width: 1,
                           ),
                         ),
-                        hintText: 'Search Amazon.in',
-                        hintStyle: const TextStyle(
-                          fontWeight: FontWeight.w500,
+                        hintText: 'Search',
+                        hintStyle: GoogleFonts.plusJakartaSans(
+                          fontWeight: FontWeight.w600,
                           fontSize: 17,
                         ),
                       ),
