@@ -1,8 +1,10 @@
 import 'package:ecommerce_app_backend/common/widgets/custom_button.dart';
 import 'package:ecommerce_app_backend/common/widgets/custom_textfield.dart';
 import 'package:ecommerce_app_backend/constants/global_variables.dart';
+import 'package:ecommerce_app_backend/extensions/buildcontext/loc.dart';
 import 'package:ecommerce_app_backend/features/auth/services/auth_service.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 enum Auth {
   signin,
@@ -61,8 +63,8 @@ class _AuthScreenState extends State<AuthScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                'Welcome',
+              Text(
+                context.loc.welcome_text,
                 style: TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.w500,
