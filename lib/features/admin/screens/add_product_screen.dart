@@ -8,6 +8,7 @@ import 'package:ecommerce_app_backend/features/admin/services/admin_services.dar
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class AddProductScreen extends StatefulWidget {
   static const String routeName = '/add-product';
@@ -77,9 +78,9 @@ class _AddProductScreenState extends State<AddProductScreen> {
               gradient: GlobalVariables.appBarGradient,
             ),
           ),
-          title: const Text(
+          title:  Text(
             'Add Product',
-            style: TextStyle(
+            style: GoogleFonts.plusJakartaSans(
               color: Colors.black,
             ),
           ),
@@ -134,7 +135,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
                                 const SizedBox(height: 15),
                                 Text(
                                   'Select Product Images',
-                                  style: TextStyle(
+                                  style: GoogleFonts.plusJakartaSans(
                                     fontSize: 15,
                                     color: Colors.grey.shade400,
                                   ),

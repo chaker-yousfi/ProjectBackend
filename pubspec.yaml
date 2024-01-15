@@ -47,13 +47,8 @@ dependencies:
   flutter_rating_bar: ^4.0.1
   intl: ^0.18.0
   copy_with_extension_gen: ^5.0.4
-<<<<<<< HEAD
   google_fonts: ^6.1.0
-
-
-=======
   fl_chart: ^0.60.0
->>>>>>> 81da3b7a91fed720900c085bf84985189df7339d
 
 dev_dependencies:
   flutter_test:

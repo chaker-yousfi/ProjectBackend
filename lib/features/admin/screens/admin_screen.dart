@@ -3,6 +3,7 @@ import 'package:ecommerce_app_backend/features/admin/screens/analtyics_screen.da
 import 'package:ecommerce_app_backend/features/admin/screens/orders_screen.dart';
 import 'package:ecommerce_app_backend/features/admin/screens/posts_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class AdminScreen extends StatefulWidget {
   const AdminScreen({Key? key}) : super(key: key);
@@ -45,15 +46,15 @@ class _AdminScreenState extends State<AdminScreen> {
               Container(
                 alignment: Alignment.topLeft,
                 child: Image.asset(
-                  'assets/images/amazon_in.png',
+                  'assets/images/champion.jpeg',
                   width: 120,
                   height: 45,
                   color: Colors.black,
                 ),
               ),
-              const Text(
+               Text(
                 'Admin',
-                style: TextStyle(
+                style: GoogleFonts.plusJakartaSans(
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
                 ),

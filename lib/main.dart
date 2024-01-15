@@ -57,23 +57,14 @@ class _MyAppState extends State<MyApp> {
         useMaterial3: true, // can remove this line
       ),
       onGenerateRoute: (settings) => generateRoute(settings),
-<<<<<<< HEAD
-      // home: Provider.of<UserProvider>(context).user.token.isNotEmpty
-      //     ? Provider.of<UserProvider>(context).user.type == 'user'
-      //         ? const BottomBar()
-      //         : const AdminScreen()
-      //     : const AuthScreen(),
-      home:  AuthScreen(),
-=======
       home: Provider.of<UserProvider>(context).user.token.isNotEmpty
           ? Provider.of<UserProvider>(context).user.type == 'user'
               ? const BottomBar()
               : const AdminScreen()
-          : const AuthScreen(),
+          :  WelcomeScreen(),
 
       
       
->>>>>>> 81da3b7a91fed720900c085bf84985189df7339d
     );
   }
 }
