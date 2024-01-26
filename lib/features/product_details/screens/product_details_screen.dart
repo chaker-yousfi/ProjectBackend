@@ -1,9 +1,11 @@
 import 'package:ecommerce_app_backend/common/widgets/custom_button.dart';
 import 'package:ecommerce_app_backend/common/widgets/stars.dart';
+import 'package:ecommerce_app_backend/extensions/buildcontext/loc.dart';
 import 'package:ecommerce_app_backend/features/product_details/services/product_details_services.dart';
 import 'package:ecommerce_app_backend/providers/user_provider.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'package:ecommerce_app_backend/constants/global_variables.dart';
 import 'package:ecommerce_app_backend/features/search/screens/search_screen.dart';
@@ -189,7 +191,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
               padding: const EdgeInsets.all(8),
               child: RichText(
                 text: TextSpan(
-                  text: 'Deal Price: ',
+                      text: context.loc.deal_price,
                   style: GoogleFonts.plusJakartaSans(
                     fontSize: 18,
                     color: Color(0xff9b96d6),
@@ -219,7 +221,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
             Padding(
               padding: const EdgeInsets.all(10),
               child: CustomButton(
-                text: 'Buy Now',
+                text: context.loc.buy_now,
                 onTap: () {},
                 color: Color(0xff9b96d6),
 
@@ -229,7 +231,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
             Padding(
               padding: const EdgeInsets.all(10),
               child: CustomButton(
-                text: 'Add to Cart',
+                text: context.loc.add_cart,
                 onTap: addToCart,
               ),
             ),
@@ -241,7 +243,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
              Padding(
               padding: EdgeInsets.symmetric(horizontal: 10.0),
               child: Text(
-                'Rate The Product',
+                context.loc.product_rating,
                 style: GoogleFonts.plusJakartaSans(
                   fontSize: 22,
                   fontWeight: FontWeight.bold,

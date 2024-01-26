@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:ecommerce_app_backend/constants/error_handling.dart';
 import 'package:ecommerce_app_backend/constants/global_variables.dart';
 import 'package:ecommerce_app_backend/constants/utils.dart';
+import 'package:ecommerce_app_backend/extensions/buildcontext/loc.dart';
 import 'package:ecommerce_app_backend/features/admin/models/sales.dart';
 import 'package:ecommerce_app_backend/models/order.dart';
 import 'package:ecommerce_app_backend/models/product.dart';
@@ -58,7 +59,7 @@ class AdminServices {
         response: res,
         context: context,
         onSuccess: () {
-          showSnackBar(context, 'Product Added Successfully!');
+          showSnackBar(context, context.loc.add_product);
           Navigator.pop(context);
         },
       );

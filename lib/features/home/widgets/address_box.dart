@@ -1,3 +1,4 @@
+import 'package:ecommerce_app_backend/extensions/buildcontext/loc.dart';
 import 'package:ecommerce_app_backend/providers/user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -32,7 +33,7 @@ class AddressBox extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.only(left: 5),
               child: Text(
-                'Delivery to ${user.name} - ${user.address}',
+                context.loc.delivery + '${user.name} - ${user.address}',
                 style: GoogleFonts.plusJakartaSans(
                   fontWeight: FontWeight.w500,
                   fontSize: 15

@@ -24,10 +24,10 @@ class AccountScreen extends StatelessWidget {
               Container(
                 alignment: Alignment.topLeft,
                 child: Image.asset(
-                  "assets/images/champion.jpeg",
+                  "assets/images/store.png",
                   width: 120,
                   height: 45,
-                  color: Colors.black,
+                  //color: Colors.black,
                 ),
               ),
               //SizedBox(width: 120,),

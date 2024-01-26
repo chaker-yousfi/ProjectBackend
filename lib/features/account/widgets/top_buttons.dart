@@ -1,3 +1,4 @@
+import 'package:ecommerce_app_backend/extensions/buildcontext/loc.dart';
 import 'package:ecommerce_app_backend/features/account/services/account_services.dart';
 import 'package:ecommerce_app_backend/features/account/widgets/account_button.dart';
 import 'package:flutter/material.dart';
@@ -12,23 +13,23 @@ class TopButtons extends StatelessWidget {
         Row(
           children: [
             AccountButton(
-              text: 'Your Orders',
+                 text: context.loc.orders,
               onTap: () {},
             ),
-            AccountButton(
-              text: 'Your Wish List',
-              onTap: () {},
-            ),
+            
           ],
         ),
         const SizedBox(height: 10),
         Row(
           children: [
             AccountButton(
-              text: 'Log Out',
+              text: context.loc.logout_button,
               onTap: () => AccountServices().logOut(context),
             ),
-            
+            AccountButton(
+                text: context.loc.wishlist,
+              onTap: () {},
+            ),
           ],
         ),
       ],

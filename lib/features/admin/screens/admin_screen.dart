@@ -46,10 +46,10 @@ class _AdminScreenState extends State<AdminScreen> {
               Container(
                 alignment: Alignment.topLeft,
                 child: Image.asset(
-                  'assets/images/champion.jpeg',
-                  width: 120,
+                  'assets/images/store.png',
+                  width: 100,
                   height: 45,
-                  color: Colors.black,
+                  //color: Colors.black,
                 ),
               ),
                Text(

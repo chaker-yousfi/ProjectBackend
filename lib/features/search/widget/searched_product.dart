@@ -1,4 +1,5 @@
 import 'package:ecommerce_app_backend/common/widgets/stars.dart';
+import 'package:ecommerce_app_backend/extensions/buildcontext/loc.dart';
 import 'package:ecommerce_app_backend/models/product.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -69,14 +70,14 @@ class SearchedProduct extends StatelessWidget {
                   Container(
                     width: 235,
                     padding: const EdgeInsets.only(left: 10),
-                    child:  Text('Eligible for FREE Shipping',
+                    child:  Text(context.loc.free_shipping,
                     style: GoogleFonts.plusJakartaSans(),),
                   ),
                   Container(
                     width: 235,
                     padding: const EdgeInsets.only(left: 10, top: 5),
                     child:  Text(
-                      'In Stock',
+                      context.loc.in_stock,
                       style: GoogleFonts.plusJakartaSans(
                         color: Color(0xff9b96d6),
                       ),

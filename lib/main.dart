@@ -1,4 +1,3 @@
-
 import 'package:ecommerce_app_backend/common/widgets/bottom_bar.dart';
 import 'package:ecommerce_app_backend/constants/global_variables.dart';
 import 'package:ecommerce_app_backend/features/admin/screens/admin_screen.dart';

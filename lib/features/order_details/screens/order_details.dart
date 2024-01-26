@@ -1,10 +1,12 @@
 import 'package:ecommerce_app_backend/common/widgets/custom_button.dart';
 import 'package:ecommerce_app_backend/constants/global_variables.dart';
+import 'package:ecommerce_app_backend/extensions/buildcontext/loc.dart';
 import 'package:ecommerce_app_backend/features/admin/services/admin_services.dart';
 import 'package:ecommerce_app_backend/features/search/screens/search_screen.dart';
 import 'package:ecommerce_app_backend/models/order.dart';
 import 'package:ecommerce_app_backend/providers/user_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
@@ -69,7 +71,7 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                   height: 42,
                   margin: const EdgeInsets.only(left: 15),
                   child: Material(
-                    borderRadius: BorderRadius.circular(7),
+                    borderRadius: BorderRadius.circular(15),
                     elevation: 1,
                     child: TextFormField(
                       onFieldSubmitted: navigateToSearchScreen,
@@ -92,21 +94,21 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                         contentPadding: const EdgeInsets.only(top: 10),
                         border: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(
-                            Radius.circular(7),
+                            Radius.circular(15),
                           ),
                           borderSide: BorderSide.none,
                         ),
                         enabledBorder: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(
-                            Radius.circular(7),
+                            Radius.circular(15),
                           ),
                           borderSide: BorderSide(
                             color: Colors.black38,
                             width: 1,
                           ),
                         ),
-                        hintText: 'Search Amazon.in',
-                        hintStyle: const TextStyle(
+                        hintText: 'Search',
+                        hintStyle: GoogleFonts.plusJakartaSans(
                           fontWeight: FontWeight.w500,
                           fontSize: 17,
                         ),
@@ -131,9 +133,9 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                'View order details',
-                style: TextStyle(
+              Text(
+                context.loc.order_details,
+                style: GoogleFonts.plusJakartaSans(
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
                 ),
@@ -149,19 +151,21 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Order Date:      ${DateFormat().format(
-                      DateTime.fromMillisecondsSinceEpoch(
-                          widget.order.orderedAt),
-                    )}'),
-                    Text('Order ID:          ${widget.order.id}'),
-                    Text('Order Total:      \$${widget.order.totalPrice}'),
+                    Text(context.loc.order_date +
+                        '      ${DateFormat().format(
+                          DateTime.fromMillisecondsSinceEpoch(
+                              widget.order.orderedAt),
+                        )}', style: GoogleFonts.plusJakartaSans(),),
+                    Text(context.loc.order_id + '          ${widget.order.id}',style: GoogleFonts.plusJakartaSans()),
+                    Text(
+                        context.loc.order_total + '${widget.order.totalPrice}', style: GoogleFonts.plusJakartaSans()),
                   ],
                 ),
               ),
               const SizedBox(height: 10),
-              const Text(
-                'Purchase Details',
-                style: TextStyle(
+              Text(
+                context.loc.purchase_details,
+                style: GoogleFonts.plusJakartaSans(
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
                 ),
@@ -190,7 +194,7 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                               children: [
                                 Text(
                                   widget.order.products[i].name,
-                                  style: const TextStyle(
+                                  style:  GoogleFonts.plusJakartaSans(
                                     fontSize: 17,
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -198,7 +202,9 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                                   overflow: TextOverflow.ellipsis,
                                 ),
                                 Text(
-                                  'Qty: ${widget.order.quantity[i]}',
+                                  context.loc.qty +
+                                      ' ${widget.order.quantity[i]}',
+                                      style: GoogleFonts.plusJakartaSans()
                                 ),
                               ],
                             ),
@@ -209,9 +215,9 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                 ),
               ),
               const SizedBox(height: 10),
-              const Text(
-                'Tracking',
-                style: TextStyle(
+              Text(
+                context.loc.tracking,
+                style: GoogleFonts.plusJakartaSans(
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
                 ),
@@ -227,7 +233,7 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                   controlsBuilder: (context, details) {
                     if (user.type == 'admin') {
                       return CustomButton(
-                        text: 'Done',
+                        text: context.loc.done,
                         onTap: () => changeOrderStatus(details.currentStep),
                       );
                     }
@@ -235,9 +241,10 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                   },
                   steps: [
                     Step(
-                      title: const Text('Pending'),
-                      content: const Text(
-                        'Your order is yet to be delivered',
+                      title: Text(context.loc.pending,style: GoogleFonts.plusJakartaSans()),
+                      content: Text(
+                        context.loc.pending_delivery,
+                        style: GoogleFonts.plusJakartaSans()
                       ),
                       isActive: currentStep > 0,
                       state: currentStep > 0
@@ -245,9 +252,10 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                           : StepState.indexed,
                     ),
                     Step(
-                      title: const Text('Completed'),
-                      content: const Text(
-                        'Your order has been delivered, you are yet to sign.',
+                      title: Text(context.loc.completed,style: GoogleFonts.plusJakartaSans()),
+                      content: Text(
+                        context.loc.pending_signing,
+                        style: GoogleFonts.plusJakartaSans()
                       ),
                       isActive: currentStep > 1,
                       state: currentStep > 1
@@ -255,9 +263,10 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                           : StepState.indexed,
                     ),
                     Step(
-                      title: const Text('Received'),
-                      content: const Text(
-                        'Your order has been delivered and signed by you.',
+                      title: Text(context.loc.received,style: GoogleFonts.plusJakartaSans()),
+                      content: Text(
+                        context.loc.signed,
+                        style: GoogleFonts.plusJakartaSans()
                       ),
                       isActive: currentStep > 2,
                       state: currentStep > 2
@@ -265,9 +274,11 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                           : StepState.indexed,
                     ),
                     Step(
-                      title: const Text('Delivered'),
-                      content: const Text(
-                        'Your order has been delivered and signed by you!',
+                      title: Text(context.loc.delivered, style: GoogleFonts.plusJakartaSans()),
+                      content: Text(
+                        context.loc.signed,
+                        style: GoogleFonts.plusJakartaSans()
+
                       ),
                       isActive: currentStep >= 3,
                       state: currentStep >= 3

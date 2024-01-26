@@ -4,6 +4,7 @@ import 'package:ecommerce_app_backend/common/widgets/bottom_bar.dart';
 import 'package:ecommerce_app_backend/constants/error_handling.dart';
 import 'package:ecommerce_app_backend/constants/global_variables.dart';
 import 'package:ecommerce_app_backend/constants/utils.dart';
+import 'package:ecommerce_app_backend/extensions/buildcontext/loc.dart';
 import 'package:ecommerce_app_backend/models/user.dart';
 import 'package:ecommerce_app_backend/providers/user_provider.dart';
 import 'package:flutter/material.dart';
@@ -45,7 +46,7 @@ class AuthService {
         onSuccess: () {
           showSnackBar(
             context,
-            'Account created! Login with the same credentials!',
+            context.loc.success_create,
           );
         },
       );

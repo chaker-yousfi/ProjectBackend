@@ -1,4 +1,5 @@
 import 'package:ecommerce_app_backend/common/widgets/loader.dart';
+import 'package:ecommerce_app_backend/extensions/buildcontext/loc.dart';
 import 'package:ecommerce_app_backend/features/home/services/home_services.dart';
 import 'package:ecommerce_app_backend/features/product_details/screens/product_details_screen.dart';
 import 'package:ecommerce_app_backend/models/product.dart';
@@ -49,8 +50,8 @@ class _DealOfDayState extends State<DealOfDay> {
                       alignment: Alignment.topLeft,
                       padding: const EdgeInsets.only(left: 10, top: 15),
                       child: Text(
-                        'Deal of the day',
-                        style: GoogleFonts.plusJakartaSans(
+                        context.loc.best_deal,
+                        style:  GoogleFonts.plusJakartaSans(
                           fontSize: 20,
                           fontWeight: FontWeight.w700,
                           ),
@@ -106,11 +107,10 @@ class _DealOfDayState extends State<DealOfDay> {
                       ).copyWith(left: 15),
                       alignment: Alignment.topLeft,
                       child: Text(
-                        'See all deals',
+                         context.loc.all_deals,
+                        
                         style: GoogleFonts.plusJakartaSans(
-                          color: Color(0xff9b96d6),
-                          fontSize: 15,
-                          fontWeight: FontWeight.w400
+                          color: Colors.cyan[800],
                         ),
                       ),
                     ),

@@ -1,4 +1,5 @@
 import 'package:ecommerce_app_backend/common/widgets/loader.dart';
+import 'package:ecommerce_app_backend/extensions/buildcontext/loc.dart';
 import 'package:ecommerce_app_backend/features/account/widgets/single_product.dart';
 import 'package:ecommerce_app_backend/features/admin/screens/add_product_screen.dart';
 import 'package:ecommerce_app_backend/features/admin/services/admin_services.dart';
@@ -86,7 +87,7 @@ class _PostsScreenState extends State<PostsScreen> {
             floatingActionButton: FloatingActionButton(
               child: const Icon(Icons.add),
               onPressed: navigateToAddProduct,
-              tooltip: 'Add a Product',
+              tooltip: context.loc.add_product,
             ),
             floatingActionButtonLocation:
                 FloatingActionButtonLocation.centerFloat,

@@ -1,5 +1,6 @@
 import 'package:ecommerce_app_backend/common/widgets/loader.dart';
 import 'package:ecommerce_app_backend/constants/global_variables.dart';
+import 'package:ecommerce_app_backend/extensions/buildcontext/loc.dart';
 import 'package:ecommerce_app_backend/features/account/services/account_services.dart';
 import 'package:ecommerce_app_backend/features/account/widgets/single_product.dart';
 import 'package:ecommerce_app_backend/features/order_details/screens/order_details.dart';
@@ -43,7 +44,7 @@ class _OrdersState extends State<Orders> {
                       left: 15,
                     ),
                     child: Text(
-                      'Your Orders',
+                      context.loc.orders,
                       style: GoogleFonts.plusJakartaSans(
                         fontSize: 18,
                         fontWeight: FontWeight.w600,
@@ -55,11 +56,11 @@ class _OrdersState extends State<Orders> {
                       right: 15,
                     ),
                     child: Text(
-                      'See all',
-                      style: GoogleFonts.plusJakartaSans(
-                        color: Color(0xff9b96d6),
-                      ),
+                      context.loc.see_all,
+                      style: TextStyle(
+                        color:  Color(0xff9b96d6),
                     ),
+                  ),
                   ),
                 ],
               ),

@@ -1,4 +1,5 @@
 import 'package:ecommerce_app_backend/constants/global_variables.dart';
+import 'package:ecommerce_app_backend/extensions/buildcontext/loc.dart';
 import 'package:ecommerce_app_backend/providers/user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -20,8 +21,8 @@ class BelowAppBar extends StatelessWidget {
         children: [
           RichText(
             text: TextSpan(
-              text: 'Hello, ',
-              style: GoogleFonts.plusJakartaSans(
+              text: context.loc.hello,
+              style: const TextStyle(
                 fontSize: 22,
                 color: Colors.black,
               ),

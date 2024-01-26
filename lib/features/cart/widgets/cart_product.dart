@@ -1,3 +1,4 @@
+import 'package:ecommerce_app_backend/extensions/buildcontext/loc.dart';
 import 'package:ecommerce_app_backend/features/cart/services/cart_services.dart';
 import 'package:ecommerce_app_backend/features/product_details/services/product_details_services.dart';
 import 'package:ecommerce_app_backend/models/product.dart';
@@ -85,17 +86,15 @@ class _CartProductState extends State<CartProduct> {
                   Container(
                     width: 235,
                     padding: const EdgeInsets.only(left: 10),
-                    child:  Text('Eligible for FREE Shipping',
-                    style: GoogleFonts.plusJakartaSans(
-                      
-                    ),),
+                    child: Text(context.loc.free_shipping,
+                    style: GoogleFonts.plusJakartaSans(),),
                   ),
                   Container(
                     width: 235,
                     padding: const EdgeInsets.only(left: 10, top: 5),
-                    child:  Text(
-                      'In Stock',
-                      style: GoogleFonts.plusJakartaSans(
+                    child: Text(
+                      context.loc.in_stock,
+                      style: TextStyle(
                         color: Color(0xff9b96d6),
                       ),
                       maxLines: 2,

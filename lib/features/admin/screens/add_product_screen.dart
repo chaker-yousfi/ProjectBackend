@@ -4,6 +4,7 @@ import 'package:ecommerce_app_backend/common/widgets/custom_button.dart';
 import 'package:ecommerce_app_backend/common/widgets/custom_textfield.dart';
 import 'package:ecommerce_app_backend/constants/global_variables.dart';
 import 'package:ecommerce_app_backend/constants/utils.dart';
+import 'package:ecommerce_app_backend/extensions/buildcontext/loc.dart';
 import 'package:ecommerce_app_backend/features/admin/services/admin_services.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dotted_border/dotted_border.dart';
@@ -78,8 +79,8 @@ class _AddProductScreenState extends State<AddProductScreen> {
               gradient: GlobalVariables.appBarGradient,
             ),
           ),
-          title:  Text(
-            'Add Product',
+          title: Text(
+            context.loc.add_product,
             style: GoogleFonts.plusJakartaSans(
               color: Colors.black,
             ),
@@ -134,7 +135,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
                                 ),
                                 const SizedBox(height: 15),
                                 Text(
-                                  'Select Product Images',
+                                  context.loc.product_img,
                                   style: GoogleFonts.plusJakartaSans(
                                     fontSize: 15,
                                     color: Colors.grey.shade400,
@@ -148,23 +149,23 @@ class _AddProductScreenState extends State<AddProductScreen> {
                 const SizedBox(height: 30),
                 CustomTextField(
                   controller: productNameController,
-                  hintText: 'Product Name',
+                  hintText: context.loc.product_name,
                 ),
                 const SizedBox(height: 10),
                 CustomTextField(
                   controller: descriptionController,
-                  hintText: 'Description',
+                  hintText: context.loc.product_description,
                   maxLines: 7,
                 ),
                 const SizedBox(height: 10),
                 CustomTextField(
                   controller: priceController,
-                  hintText: 'Price',
+                  hintText: context.loc.product_price,
                 ),
                 const SizedBox(height: 10),
                 CustomTextField(
                   controller: quantityController,
-                  hintText: 'Quantity',
+                  hintText: context.loc.product_quantity,
                 ),
                 const SizedBox(height: 10),
                 SizedBox(
@@ -187,7 +188,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
                 ),
                 const SizedBox(height: 10),
                 CustomButton(
-                  text: 'Sell',
+                  text: context.loc.sell_button,
                   onTap: sellProduct,
                 ),
               ],

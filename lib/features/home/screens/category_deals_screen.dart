@@ -1,5 +1,6 @@
 import 'package:ecommerce_app_backend/common/widgets/loader.dart';
 import 'package:ecommerce_app_backend/constants/global_variables.dart';
+import 'package:ecommerce_app_backend/extensions/buildcontext/loc.dart';
 import 'package:ecommerce_app_backend/features/home/services/home_services.dart';
 import 'package:ecommerce_app_backend/features/product_details/screens/product_details_screen.dart';
 import 'package:ecommerce_app_backend/models/product.dart';
@@ -65,7 +66,7 @@ class _CategoryDealsScreenState extends State<CategoryDealsScreen> {
                       const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                   alignment: Alignment.center,
                   child: Text(
-                    'Keep shopping for ${widget.category}',
+                    context.loc.keep_shop + '${widget.category}',
                     textAlign: TextAlign.center,
                     style: GoogleFonts.plusJakartaSans(
                       fontSize: 23,

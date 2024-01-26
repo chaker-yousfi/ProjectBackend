@@ -1,11 +1,13 @@
+import 'package:ecommerce_app_backend/common/widgets/custom_button.dart';
 import 'package:ecommerce_app_backend/common/widgets/custom_textfield.dart';
 import 'package:ecommerce_app_backend/common/widgets/custom_textfield.dart';
 import 'package:ecommerce_app_backend/constants/global_variables.dart';
 import 'package:ecommerce_app_backend/constants/utils.dart';
+import 'package:ecommerce_app_backend/extensions/buildcontext/loc.dart';
 import 'package:ecommerce_app_backend/features/address/services/address_services.dart';
 import 'package:ecommerce_app_backend/providers/user_provider.dart';
 import 'package:flutter/material.dart';
-//import 'package:pay/pay.dart';
+import 'package:pay/pay.dart';
 import 'package:provider/provider.dart';
 
 class AddressScreen extends StatefulWidget {
@@ -29,20 +31,20 @@ class _AddressScreenState extends State<AddressScreen> {
 
   final AddressServices addressServices = AddressServices();
 
- //List<PaymentItem> paymentItems = [];
+  List<PaymentItem> paymentItems = [];
 
   String addressToBeUsed = "";
 
   @override
   void initState() {
     super.initState();
-    // paymentItems.add(
-    //   PaymentItem(
-    //     amount: widget.totalAmount,
-    //     label: 'Total Amount',
-    //     status: PaymentItemStatus.final_price,
-    //   ),
-    // );
+    paymentItems.add(
+      PaymentItem(
+        amount: widget.totalAmount,
+        label: 'Total Amount',
+        status: PaymentItemStatus.final_price,
+      ),
+    );
   }
 
   @override
@@ -69,28 +71,28 @@ class _AddressScreenState extends State<AddressScreen> {
     );
   }
 
-  void payPressed(String addressFromProvider) {
-    addressToBeUsed = "";
+  // void payPressed(String addressFromProvider) {
+  //   addressToBeUsed = "";
 
-    bool isForm = flatBuildingController.text.isNotEmpty ||
-        areaController.text.isNotEmpty ||
-        pincodeController.text.isNotEmpty ||
-        cityController.text.isNotEmpty;
+  //   bool isForm = flatBuildingController.text.isNotEmpty ||
+  //       areaController.text.isNotEmpty ||
+  //       pincodeController.text.isNotEmpty ||
+  //       cityController.text.isNotEmpty;
 
-    if (isForm) {
-      if (_addressFormKey.currentState!.validate()) {
-        addressToBeUsed =
-            '${flatBuildingController.text}, ${areaController.text}, ${cityController.text} - ${pincodeController.text}';
-      } else {
-        throw Exception('Please enter all the values!');
-      }
-    } else if (addressFromProvider.isNotEmpty) {
-      addressToBeUsed = addressFromProvider;
-    } else {
-      showSnackBar(context, 'ERROR');
-    }
-    print(addressToBeUsed);
-  }
+  //   if (isForm) {
+  //     if (_addressFormKey.currentState!.validate()) {
+  //       addressToBeUsed =
+  //           '${flatBuildingController.text}, ${areaController.text}, ${cityController.text} - ${pincodeController.text}';
+  //     } else {
+  //         throw Exception(context.loc.values_error);
+  //     }
+  //   } else if (addressFromProvider.isNotEmpty) {
+  //     addressToBeUsed = addressFromProvider;
+  //   } else {
+  //     showSnackBar(context, 'ERROR');
+  //   }
+  //   print(addressToBeUsed);
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -133,8 +135,8 @@ class _AddressScreenState extends State<AddressScreen> {
                       ),
                     ),
                     const SizedBox(height: 20),
-                    const Text(
-                      'OR',
+                    Text(
+                      context.loc.or,
                       style: TextStyle(
                         fontSize: 18,
                       ),
@@ -148,28 +150,65 @@ class _AddressScreenState extends State<AddressScreen> {
                   children: [
                     CustomTextField(
                       controller: flatBuildingController,
-                      hintText: 'Flat, House no, Building',
+                      hintText: context.loc.flat_details,
                     ),
                     const SizedBox(height: 10),
                     CustomTextField(
                       controller: areaController,
-                      hintText: 'Area, Street',
+                      hintText: context.loc.street_details,
                     ),
                     const SizedBox(height: 10),
                     CustomTextField(
                       controller: pincodeController,
-                      hintText: 'Pincode',
+                      hintText: context.loc.pincode,
                     ),
                     const SizedBox(height: 10),
                     CustomTextField(
                       controller: cityController,
-                      hintText: 'Town/City',
+                      hintText: context.loc.town_details,
                     ),
                     const SizedBox(height: 10),
                   ],
                 ),
               ),
-              ElevatedButton(onPressed: () {}, child: Text('TEST')),
+             CustomButton(
+                      text: 'Place Order',
+                      onTap: () {
+                        bool isForm = flatBuildingController.text.isNotEmpty ||
+                            areaController.text.isNotEmpty ||
+                            pincodeController.text.isNotEmpty ||
+                            cityController.text.isNotEmpty;
+
+                        if (isForm) {
+                          if (_addressFormKey.currentState!.validate()) {
+                            setState(() {
+                              addressToBeUsed =
+                                  '${flatBuildingController.text}, ${areaController.text}, ${cityController.text} - ${pincodeController.text}';
+                            });
+                          } else {
+                           
+                            print(context.loc.values_error);
+                            return;
+                          }
+                        } else if (address.isNotEmpty) {
+                          setState(() {
+                            addressToBeUsed = address;
+                          });
+                        } else {
+                          
+                          print('ERROR: Address not available');
+                          return;
+                        }
+
+                        // Now, addressToBeUsed should be correctly set, proceed with placing the order
+                        addressServices.placeOrder(
+                          context: context,
+                          address: addressToBeUsed,
+                          totalSum: double.parse(widget.totalAmount),
+                        );
+                      },
+                    ),
+
               // GooglePayButton(
               //   onPressed: () => payPressed(address),
               //   paymentConfigurationAsset: 'gpay.json',

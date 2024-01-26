@@ -78,7 +78,7 @@ class _AuthScreenState extends State<AuthScreen> {
                     ? GlobalVariables.backgroundColor
                     : GlobalVariables.greyBackgroundCOlor,
                 title:  Text(
-                  'Sign-In.',
+                  context.loc.signin,
                   style: GoogleFonts.plusJakartaSans(
                     fontWeight: FontWeight.bold,
                   ),
@@ -104,16 +104,18 @@ class _AuthScreenState extends State<AuthScreen> {
                       children: [
                         CustomTextField(
                           controller: _emailController,
-                          hintText: 'Enter Your Email',
+                           hintText: context.loc.hint_email,
                         ),
                         const SizedBox(height: 10),
                         CustomTextField(
                           controller: _passwordController,
-                          hintText: 'Enter Your Password',
+                         hintText: context.loc.hint_password,
+                           isPassword: true,
+
                         ),
                         const SizedBox(height: 10),
                         CustomButton(
-                          text: 'Sign In',
+                          text: context.loc.signin,
                           onTap: () {
                             if (_signInFormKey.currentState!.validate()) {
                               signInUser();
@@ -155,21 +157,23 @@ class _AuthScreenState extends State<AuthScreen> {
                       children: [
                         CustomTextField(
                           controller: _nameController,
-                          hintText: 'Enter Your Name',
+                          hintText: context.loc.hint_name,
                         ),
                         const SizedBox(height: 10),
                         CustomTextField(
                           controller: _emailController,
-                          hintText: 'Enter Your Email',
+                          hintText: context.loc.hint_email,
                         ),
                         const SizedBox(height: 10),
                         CustomTextField(
                           controller: _passwordController,
-                          hintText: 'Enter Your Password',
+                          hintText:  context.loc.hint_password,
+                          isPassword: true,
+
                         ),
                         const SizedBox(height: 10),
                         CustomButton(
-                          text: 'Sign Up',
+                          text: context.loc.signup,
                           onTap: () {
                             if (_signUpFormKey.currentState!.validate()) {
                               signUpUser();

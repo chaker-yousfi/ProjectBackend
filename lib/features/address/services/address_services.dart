@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:ecommerce_app_backend/constants/error_handling.dart';
 import 'package:ecommerce_app_backend/constants/global_variables.dart';
 import 'package:ecommerce_app_backend/constants/utils.dart';
+import 'package:ecommerce_app_backend/extensions/buildcontext/loc.dart';
 import 'package:ecommerce_app_backend/models/product.dart';
 import 'package:ecommerce_app_backend/models/user.dart';
 import 'package:ecommerce_app_backend/providers/user_provider.dart';
@@ -68,7 +69,7 @@ class AddressServices {
         response: res,
         context: context,
         onSuccess: () {
-          showSnackBar(context, 'Your order has been placed!');
+          showSnackBar(context, context.loc.order_placed);
           User user = userProvider.user.copyWith(
             cart: [],
           );
